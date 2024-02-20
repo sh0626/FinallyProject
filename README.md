@@ -5,7 +5,7 @@
 1. 원본 소스 클론(복사) 하기 : (최초 1회만 진행)
 
 ```bash
-git clone https://github.com/CEB79/hello01.git
+git clone https://github.com/sh0626/FinallyProject.git
 ```
 
 2. 디렉토리 이동
