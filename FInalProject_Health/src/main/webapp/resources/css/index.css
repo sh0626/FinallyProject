@@ -1,0 +1,12 @@
+.single-hero-item .hero-text h3 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Nunito Sans", sans-serif;
+  margin-bottom: 4px;
+  position: relative;
+  top: 30px;
+}
+
+.come {
+	color: #ffffff;
+}
