@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+	마이바티스 참고 사이트
+	  - http://blog.mybatis.org/
+	  - http://www.mybatis.org/mybatis-3/ko/index.html
+-->
+<mapper namespace="com.health.mapper.JournalMapper" >
+
+	<select id="getJournalList" resultType="Journal" >
+		SELECT 
+		journalNo, 
+		journalTitle,
+		userName ,
+		journalDate
+		FROM journal j, user u 
+		WHERE j.FK_journal_user = u.userNo
+			AND userNo = #{no};
+	</select>
+	
+	<resultMap id="JournalResultMap" type="Journal">
+	<id property="userNo" column="userNo"/>
+	<result property="title" column="journalTitle" />
+	<result property="regDate" column="journalDate" />
+	<result property="name" column="userName" />
+	<result property="no" column="journalNo"  />
+	</resultMap>
+</mapper>	
+
+
+
