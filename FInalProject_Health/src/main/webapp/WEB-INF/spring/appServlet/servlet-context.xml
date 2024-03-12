@@ -25,5 +25,5 @@
 	
 	<view-controller path="/loginForm" view-name="loginForm"/>
 	<view-controller path="/register" view-name="register"/>
-	
+	<view-controller path="/traningJournal" view-name="traningJournal"/>
 </beans:beans>
