@@ -1,0 +1,81 @@
+.login {
+	padding-bottom: 10px;
+}
+
+@CHARSET "UTF-8";
+/* ·Î±×ÀÎ Æû */
+#loginForm h2, #loginForm p, #loginForm input, #loginForm label {
+	margin: 0px;
+	padding: 0px;
+	font-family: "¸¼Àº °íµñ", µ¸¿ò;
+	font-size: 12px;
+}
+
+#loginForm h2 {
+	font-size: 40px;
+	letter-spacing: -1px;
+	color: #C8C8C8;
+	text-align: center;
+}
+
+#loginForm legend {
+	display: none;
+}
+
+#loginForm fieldset {
+	width: 430px;
+	margin: 10px auto;
+	border: 5px solid #efefef;
+	padding: 50px;
+	border-radius: 15px;
+}
+
+#loginForm label.labelStyle {
+	width: 60px;
+	display: block;
+	font-weight: bold;
+}
+
+#loginForm #userId, #loginForm #userPass {
+	margin-bottom: 5px;
+	padding: 2px;
+}
+
+#loginForm #btnLogin {
+	display: block;
+	background-color: #FF6633;
+	border-radius: 5px;
+	border-style: none;
+	color: #fff;
+	height: 57px;
+	position: relative;
+	float: left;
+	font-size: 13px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#loginForm #btn1 {
+	clear: both;
+	padding: 10px 0px;
+}
+
+#loginForm #btn1 label {
+	font-size: 11px;
+	vertical-align: middle;
+	padding-bottom: 13px;
+}
+
+#loginForm #btn1 input {
+	height: 20px;
+	width: 20px;
+}
+
+#loginForm #btn2 input {
+	background-color: #666;
+	border-style: none;
+	border-radius: 5px;
+	color: #fff;
+	height: 25px;
+	margin-bottom: 5px;
+}
