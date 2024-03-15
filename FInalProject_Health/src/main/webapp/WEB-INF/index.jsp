@@ -29,6 +29,12 @@
 <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="resources/css/style.css" type="text/css">
 <link rel="stylesheet" href="resources/css/index.css" type="text/css">
+<link rel="stylesheet" href="resources/css/loginForm.css" type="text/css">
+
+<!-- calendar -->
+<link rel="stylesheet" href="resources/css/fullCalendar.css" type="text/css">
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+<script src="resources/js/fullCalendar.js"></script>
 </head>
 
 <body>

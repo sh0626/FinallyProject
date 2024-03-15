@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.health.domain.Journal;
+import com.health.domain.exercise;
 
 @Repository
 public class JournalDaoImpl implements JournalDao {
@@ -15,10 +16,25 @@ public class JournalDaoImpl implements JournalDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	//운동일지 리스트 출력
 	@Override
 	public List<Journal> JournalList(int no) {
 
 		return sqlSession.selectList(NAME_SPACE +".getJournalList", no);
+	}
+
+	//운동일지 상세 출력
+	@Override
+	public List<exercise> getExercise(int journalNo) {
+	
+		return sqlSession.selectList(NAME_SPACE +".getExercise", journalNo);
+	}
+
+	@Override
+	public void insertJournal(Journal journal) {
+	
+		sqlSession.insert(NAME_SPACE+".insertJournal", journal);
+		
 	}
 
 }
