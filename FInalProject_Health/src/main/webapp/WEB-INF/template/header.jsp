@@ -28,7 +28,7 @@
 								<li><a href="#">식단</a></li>
 								<li><a href="#">인바디</a></li>
 								<li><a href="#">눈바디</a></li>
-								<li><a href="calendar">달력</a></li>
+								<li><a href="schedule">달력</a></li>
 							</ul>
 						</li>
 					</ul>

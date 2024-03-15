@@ -30,4 +30,7 @@
 	<view-controller path="/journalWrite" view-name="journalWrite"/>
 	<view-controller path="/userList" view-name="userList"/>
 	<view-controller path="/userDetail" view-name="userDetail"/>
+	
+	<view-controller path="/schedule" view-name="schedule"/>
+	
 </beans:beans>
