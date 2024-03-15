@@ -17,16 +17,33 @@
 		journalDate
 		FROM journal j, user u 
 		WHERE j.FK_journal_user = u.userNo
-			AND userNo = #{no};
+			AND userNo = #{no}
+		order	BY journalNo DESC;
 	</select>
 	
-	<resultMap id="JournalResultMap" type="Journal">
-	<id property="userNo" column="userNo"/>
-	<result property="title" column="journalTitle" />
-	<result property="regDate" column="journalDate" />
-	<result property="name" column="userName" />
-	<result property="no" column="journalNo"  />
-	</resultMap>
+	<select id="getExercise" resultType="exercise">
+		SELECT
+		exerciseCate,
+		exerciseName,
+		exerciseWeight,
+		exerciseSet,
+		exerciseRep
+		FROM
+		exercise
+		WHERE 
+		FK_exercise_journal = #{no}
+	</select>
+	
+	<insert id="insertJournal" parameterType="Journal">
+		INSERT INTO journal(journalTitle, journalDate, FK_journal_user)
+		VALUES(#{title}, SYSDATE() ,#{no})
+	</insert>
+	<insert id="insertExercise" parameterType="Exercise">
+		INSERT INTO exercise(exerciseCate, exerciseName, exerciseWeight, exerciseSet, exerciseRep, FK_exercise_journal)
+	    VALUES (#{exerciseCate},#{exerciseName},#{exerciseWeight},
+	    #{exerciseSet},#{exerciseRep},#{FK_exercise_journal})
+	</insert>
+	
 </mapper>	
 
 
