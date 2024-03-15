@@ -1,10 +1,6 @@
 package com.health.domain;
 
-<<<<<<< HEAD
-import java.sql.Timestamp;
-=======
 import com.google.protobuf.Timestamp;
->>>>>>> 034c02b9dce3e8fe84c41f38e9dfb9f8c0246ea6
 
 public class User {
 	private int userNo;
@@ -17,16 +13,9 @@ public class User {
 	private String phone3;
 	private int possessNum;
 	private int totalNum;
-<<<<<<< HEAD
-	private int ptPossessNum;
-	private String employeeName;
-	
-	public User() {}
-=======
 
 	public User() {
 	}
->>>>>>> 034c02b9dce3e8fe84c41f38e9dfb9f8c0246ea6
 
 	public User(int userNo, String userName, String age, String gender, Timestamp regDate, String phone1, String phone2,
 			String phone3, int possessNum, int totalNum) {
@@ -122,25 +111,4 @@ public class User {
 		this.totalNum = totalNum;
 	}
 
-<<<<<<< HEAD
-	public int getPtPossessNum() {
-		return ptPossessNum;
-	}
-
-	public void setPtPossessCount(int ptPossessNum) {
-		this.ptPossessNum = ptPossessNum;
-	}
-
-	public String getEmployeeName() {
-		return employeeName;
-	}
-
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
-	
-	
-	
-=======
->>>>>>> 034c02b9dce3e8fe84c41f38e9dfb9f8c0246ea6
 }
