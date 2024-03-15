@@ -28,4 +28,6 @@
 	<view-controller path="trainingJournal" view-name="trainingJournal"/>
 	<view-controller path="/journalDetail" view-name="journalDetail"/>
 	<view-controller path="/journalWrite" view-name="journalWrite"/>
+	<view-controller path="/userList" view-name="userList"/>
+	<view-controller path="/userDetail" view-name="userDetail"/>
 </beans:beans>
