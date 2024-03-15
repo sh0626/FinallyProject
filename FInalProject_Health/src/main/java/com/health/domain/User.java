@@ -1,6 +1,6 @@
 package com.health.domain;
 
-import com.google.protobuf.Timestamp;
+import java.sql.Timestamp;
 
 public class User {
 	private int userNo;
@@ -13,9 +13,10 @@ public class User {
 	private String phone3;
 	private int possessNum;
 	private int totalNum;
-
-	public User() {
-	}
+	private int ptPossessNum;
+	private String employeeName;
+	
+	public User() {}
 
 	public User(int userNo, String userName, String age, String gender, Timestamp regDate, String phone1, String phone2,
 			String phone3, int possessNum, int totalNum) {
@@ -111,4 +112,22 @@ public class User {
 		this.totalNum = totalNum;
 	}
 
+	public int getPtPossessNum() {
+		return ptPossessNum;
+	}
+
+	public void setPtPossessCount(int ptPossessNum) {
+		this.ptPossessNum = ptPossessNum;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+	
+	
+	
 }
