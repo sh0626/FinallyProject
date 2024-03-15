@@ -20,21 +20,21 @@
 					<table class= "table text-center">
 						<thead class="table-secondary">
 							<tr class="text-dark"> 
-								<th>번 호</th>
-								<th><a href="#" 
-								class="text-decoration-none link-dark">글이름</a></th>
-								<th>회원명</th>
-								<th>날 짜</th>
+								<th>부 위</th>
+								<th>운동명</th>
+								<th>무 게</th>
+								<th>세 트</th>
+								<th>횟 수</th>
 							</tr>
 						</thead>
 						<tbody class="text-light">
-							<c:forEach var="j" items="${jList}">
+							<c:forEach var="e" items="${eList}">
 							<tr>
-								<td>${j.journalNo}</td>
-								<td>${j.journalTitle}</td>
-								<td>${j.userName}</td>
-								<td><fmt:formatDate value="${j.journalDate}" 
-										pattern="yyyy-MM-dd HH:mm" /></td>
+								<td>${e.exerciseCate}</td>
+								<td>${e.exerciseName}</td>
+								<td>${e.exerciseWeight} Kg</td>
+								<td>${e.exerciseSet} Set</td>
+								<td>${e.exerciseRep} Rep</td>				
 							</tr>
 							</c:forEach>
 						</tbody>	
