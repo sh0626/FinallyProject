@@ -18,21 +18,10 @@ public class ScheduleService {
 	private ScheduleDAO dao;
 	
 	public List<ScheduleDTO> showSchedule() throws Exception {
-		
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String id = auth.getName();
-		
-		return dao.showSchedule(id);
+		return dao.showSchedule();
 	}
 	
 	public void addSchedule(ScheduleDTO dto) throws Exception{
-
-
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String id = auth.getName();
-		
-		dto.setId(id);
-		
 		dao.addSchedule(dto);
 	}
 }

@@ -15,14 +15,14 @@ public class ScheduleDAO {
 	@Inject
 	private SqlSession sqlSession;
 
-	private static final String namespace = "com.management.schedule.ScheduleDAO";
-	private static final String NAME_SPACE = "com.health.mapper.JournalMapper";
+	//ScheduleDAO
+	private static final String NAME_SPACE = "com.health.mapper.ScheduleMapper";
 	
-	public List<ScheduleDTO> showSchedule(String id) throws Exception {
-		return sqlSession.selectList(namespace + ".showSchedule", id);
+	public List<ScheduleDTO> showSchedule() throws Exception {
+		return sqlSession.selectList(NAME_SPACE + ".showSchedule");
 	}
 
 	public void addSchedule(ScheduleDTO dto) throws Exception {
-		sqlSession.insert(namespace + ".addSchedule", dto);
+		sqlSession.insert(NAME_SPACE + ".addSchedule", dto);
 	}
 }
