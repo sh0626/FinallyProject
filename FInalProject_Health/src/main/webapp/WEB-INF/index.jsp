@@ -67,6 +67,24 @@
 	<script src="resources/js/owl.carousel.min.js"></script>
 	<script src="resources/js/masonry.pkgd.min.js"></script>
 	<script src="resources/js/main.js"></script>
+	
+	<!-- javascripts -->
+	<script src="resources/origin/js/jquery.js"></script>
+	<script src="resources/origin/js/bootstrap.min.js"></script>
+	<!-- nice scroll -->
+	<script src="resources/origin/js/jquery.scrollTo.min.js"></script>
+	<script src="resources/origin/js/jquery.nicescroll.js"
+		type="text/javascript"></script>
+	<!-- jquery validate js -->
+	<script type="text/javascript"
+		src="resources/origin/js/jquery.validate.min.js"></script>
+
+	<!-- custom form validation script for this page-->
+	<script src="resources/origin/js/form-validation-script.js"></script>
+	<!--custome script for all page-->
+	<script src="resources/origin/js/scripts.js"></script>
+	<!-- 부트스트랩 기본 템플릿 end -->
+	
 </body>
 
 </html>

@@ -12,11 +12,5 @@ public class MainController {
 
 		return "main";
 	}
-	
-	@RequestMapping("/calendar")
-	public String Calendar() {
-
-		return "fullCalendar";
-	}
 
 }

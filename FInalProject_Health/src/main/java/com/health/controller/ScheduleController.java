@@ -23,42 +23,40 @@ public class ScheduleController {
 
 	@Inject
 	private ScheduleService service;
-	
-	//일정 관리 페이지
+
+	// 일정 관리 페이지
 	@RequestMapping(value = "/schedule")
-	public String schedule(Model model)throws Exception {
-		
-		model.addAttribute("showSchedule" , service.showSchedule());
-		
-		return "/main/schedule";
+	public String schedule(Model model) throws Exception {
+
+		model.addAttribute("showSchedule", service.showSchedule());
+
+		return "/schedule";
 	}
-	
-	//일정 추가 팝업
+
+	// 일정 추가 팝업
 	@RequestMapping(value = "/schedulePopup")
 	public String test2() throws Exception {
-		return "/main/schedulePopup";
+		return "/schedulePopup";
 	}
-	
-	//일정 추가 버튼 클릭 Ajax
+
+	// 일정 추가 버튼 클릭 Ajax
 	@ResponseBody
 	@RequestMapping(value = "/addSchedule", method = RequestMethod.POST)
-	public Map<Object,Object> addSchedule(@RequestBody ScheduleDTO dto) throws Exception{
-		Map<Object,Object>map = new HashMap<Object,Object>();
+	public Map<Object, Object> addSchedule(@RequestBody ScheduleDTO dto) throws Exception {
+		Map<Object, Object> map = new HashMap<Object, Object>();
 
 		service.addSchedule(dto);
-	
+
 		return map;
 	}
 
-	//일정 보이기 (임시)
+	// 일정 보이기 (임시)
 	@ResponseBody
 	@RequestMapping(value = "/showSchedule")
 	public List<ScheduleDTO> showSchedule() throws Exception {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String id = auth.getName();
-		
+
 		List<ScheduleDTO> list = service.showSchedule();
-		
+
 		return list;
 	}
 }
