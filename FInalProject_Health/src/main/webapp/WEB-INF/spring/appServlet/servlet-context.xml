@@ -32,5 +32,5 @@
 	<view-controller path="/userDetail" view-name="userDetail"/>
 	
 	<view-controller path="/schedule" view-name="schedule"/>
-	
+	<view-controller path="/inBody" view-name="inBody"/>
 </beans:beans>

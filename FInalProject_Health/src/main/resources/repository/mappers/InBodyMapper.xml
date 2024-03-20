@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.health.mapper.InBodyMapper">
+
+	<select id="getInBody" resultType="InBodyDTO">
+		select 
+			inbodyNo,
+			inbodyDate,
+			inbodyURL,
+			FK_inbody_user
+		from inbody;
+	</select>
+	
+	<insert id="addInBody" parameterType="InBodyDTO">
+		INSERT INTO
+			inbody(inbodyDate, inbodyURL, FK_inbody_user)
+		VALUES 
+			(#{inbodyDate}, #{inbodyURL}, #{FK_inbody_user});
+	</insert>
+</mapper>	
+
+
+

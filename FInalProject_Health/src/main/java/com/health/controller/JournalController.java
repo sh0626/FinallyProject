@@ -17,8 +17,6 @@ public class JournalController {
 
 	@Autowired
 	private JournalService service;
-
-	
 	
 	@RequestMapping(value = "/trainingJournal", method = RequestMethod.GET)
 	public String getJournal(Model model,
