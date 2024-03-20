@@ -1,13 +1,17 @@
 package com.health.controller;
 
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -111,7 +115,27 @@ public class JournalController {
 		return "exerciseWrite";
 	}
 	
+	/* @RequestMapping("/delete")
+	public String deleteExercise(ArrayList<Integer> selectedItems, int journalNo) {
+	    if (selectedItems != null && !selectedItems.isEmpty()) {
+	        service.deleteExercise(selectedItems);
+	    }
+		service.deleteExercise(selectedItems); 
+		return "redirect:journalDetail?journalNo=" + journalNo;
+	}*/
 
-	 
+	@RequestMapping("/delete")
+	public String deleteExercises(@RequestParam("selectedItems") int[] selectedItems, int journalNo) {
+	    for (int exerciseNo : selectedItems) {
+	        service.deleteExercise(exerciseNo);
+	    }
+	    return "redirect:journalDetail?journalNo=" + journalNo;
+	}
+
+	@RequestMapping("/deleteJ")
+	public String deleteJournal(int journalNo) {	  
+	        service.deleteJournal(journalNo);
+	    return "redirect:trainingJournal";
+	}
 	
 }

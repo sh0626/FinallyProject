@@ -20,8 +20,9 @@ public interface JournalService {
 	void insertExercise(Exercise exercise);
 	
 	
-	
+	void deleteExercise(int exerciseNo);
 
+	void deleteJournal(int journalNo);
 	Journal getJounal(int journalNo);
 	
 }

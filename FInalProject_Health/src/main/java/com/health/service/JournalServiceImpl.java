@@ -65,5 +65,17 @@ public class JournalServiceImpl implements JournalService {
 		return journalDao.JournalList2(journalNo);
 	}
 
+	@Override
+	public void deleteExercise(int exerciseNo) {
+		journalDao.deleteExercise(exerciseNo);
+		
+	}
+
+	@Override
+	public void deleteJournal(int journalNo) {
+		journalDao.deleteJournal(journalNo);
+		
+	}
+
 
 }

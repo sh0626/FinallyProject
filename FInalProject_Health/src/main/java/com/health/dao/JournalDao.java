@@ -1,5 +1,6 @@
 package com.health.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.health.domain.Exercise;
@@ -19,4 +20,8 @@ public interface JournalDao {
 	void insertExercise(Exercise exercise);
 	
 	Journal JournalList2(int journalNo);
+	
+	void deleteExercise(int exerciseNo);
+	
+	void deleteJournal(int journalNo);
 }

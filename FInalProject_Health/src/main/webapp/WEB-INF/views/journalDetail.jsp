@@ -8,13 +8,15 @@
 	<div class="container">
 		<div class="row my-5">
 			<form name="checkForm" id="checkForm">
-			<input type="hidden" name="no" id="no" value="${journalNo}">
-			</form>
+			<input type="hidden" name="journalNo" id="journalNo" value="${journalNo}">
 			<div class="col">
 					<!-- 일지 타이틀 -->
 					<div class="row">
 						<div class="col">
 							<h2 class="text-light">운동 일지</h2>
+						</div>
+						<div class="col text-end">
+							<input type="button" value="글삭제" class="btn btn-danger btnCommend mt-1" id="btnDeleteJ" />
 						</div>
 					</div>
 					<!-- 일지 헤더 -->
@@ -33,9 +35,8 @@
 								</thead>
 								<tbody class="text-light">
 									<c:forEach var="e" items="${eList}">
-										<input type="hidden" value="${e.exerciseNo}">
-										<tr>
-											<td><input type="checkbox" class="checkForm" value="${e.exerciseNo}"></td>
+										<tr class="exerciseForm">
+											<td><input type="checkbox" class="checkbox" name="selectedItems" value="${e.exerciseNo}"></td>
 											<td>${e.exerciseCate}</td>
 											<td>${e.exerciseName}</td>
 											<td>${e.exerciseWeight}Kg</td>
@@ -51,7 +52,7 @@
 						<div class="col text-end">
 							<div class="text-end">
 								<input type="button" value="수정" class="btn btn-danger btnCommend" id="btnUpdate" />
-								<input type="submit" value="등록" class="btn btn-danger btnCommend" id="btnInsert" 
+								<input type="button" value="등록" class="btn btn-danger btnCommend" id="btnInsert" 
 								onclick="location.href='exerciseWrite?journalNo=${journalNo}'"/>
 								<input type="button" value="삭제" class="btn btn-danger btnCommend" id="btnDelete" />
 								<input type="button" value="목록" class="btn btn-danger btnCommend" id="btnReturn"
@@ -60,6 +61,7 @@
 						</div>
 					</div>
 				</div>
+			</form>
 		</div>
 	</div>
 </section>

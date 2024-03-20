@@ -37,9 +37,9 @@
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 	
 	<link href="resources/custom/css/schedule.css" rel="stylesheet">
-	<script src='resources/custom/js/schedule.js'></script>
-	
+
 	<!-- fullcalendar -->
+	<script src='resources/custom/js/schedule.js'></script>
 	<link href='resources/fullcalendar/packages/core/main.css' rel='stylesheet' />
 	<link href='resources/fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
 	<link href='resources/fullcalendar/packages/timegrid/main.css' rel='stylesheet' />
@@ -86,6 +86,10 @@
 	<script src="resources/origin/js/scripts.js"></script>
 	<!-- 부트스트랩 기본 템플릿 end -->
 	
+	<!-- journal -->
+	<script src="resources/js/journal.js"></script>
+	
+	<!-- journal End -->
 </body>
 
 </html>
