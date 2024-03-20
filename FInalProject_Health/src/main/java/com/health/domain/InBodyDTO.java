@@ -5,16 +5,18 @@ public class InBodyDTO {
 	private String inbodyDate;
 	private String inbodyURL;
 	private int FK_inbody_user;
+	private String userName;
 
 	public InBodyDTO() {
 	}
 
-	public InBodyDTO(int inbodyNo, String inbodyDate, String inbodyURL, int FK_inbody_user) {
+	public InBodyDTO(int inbodyNo, String inbodyDate, String inbodyURL, int FK_inbody_user, String userName) {
 		super();
 		this.inbodyNo = inbodyNo;
 		this.inbodyDate = inbodyDate;
 		this.inbodyURL = inbodyURL;
 		this.FK_inbody_user = FK_inbody_user;
+		this.userName = userName;
 	}
 
 	public int getinbodyNo() {
@@ -47,6 +49,14 @@ public class InBodyDTO {
 
 	public void setFK_inbody_user(int FK_inbody_user) {
 		this.FK_inbody_user = FK_inbody_user;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 }
