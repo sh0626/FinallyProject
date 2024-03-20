@@ -15,7 +15,7 @@
 					</div>
 					<div class="col text-end  mt-1">
 						<div>
-							<input type="button"  value="등록" class="btn btn-danger btnCommend" id="btnInsert"
+							<input type="button"  value="등록" class="btn btn-danger btnCommend" id="btnInsertJ"
 							onclick="location.href='journalWrite'">
 						</div>
 					</div>

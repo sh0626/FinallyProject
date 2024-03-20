@@ -1,6 +1,11 @@
 package com.health.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import com.health.domain.Exercise;
+import com.health.domain.Journal;
 
 
 public interface JournalService {
@@ -9,5 +14,14 @@ public interface JournalService {
 	
 	//운동 일지 상세
 	Map<String, Object> exerciseList(int journalNo);
+	
+	void insertJournal(Journal journal);
+	
+	void insertExercise(Exercise exercise);
+	
+	
+	
+
+	Journal getJounal(int journalNo);
 	
 }

@@ -2,23 +2,60 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!--
+	마이바티스 참고 사이트
+	  - http://blog.mybatis.org/
+	  - http://www.mybatis.org/mybatis-3/ko/index.html
+-->
 <mapper namespace="com.health.mapper.JournalMapper" >
 
+	
+	<update id="updateJournal" parameterType="Journal">
+		UPDATE journal
+			SET journalTitle=#{journalTitle}
+		WHERE journalNo= #{journalNo}
+	</update>
+		
+	<update id="updateExercise" parameterType="Exercise">
+		UPDATE exercise
+			SET exerciseCate =#{exerciseCate},  exerciseName = #{exerciseName}, exerciseWeight= #{exerciseWeight},
+			exerciseSet=#{exerciseSet}, exerciseRep=#{exerciseRep}
+		WHERE exerciseNo = #{exerciseNo}
+	</update>
+		
+	
+	<insert id="insertExercise" parameterType="Exercise"
+	useGeneratedKeys="true" keyProperty="exerciseNo">
+		INSERT INTO exercise(exerciseCate, exerciseName, exerciseWeight, exerciseSet, exerciseRep, FK_exercise_journal)
+		VALUES(#{exerciseCate}, #{exerciseName}, #{exerciseWeight}, #{exerciseSet}, #{exerciseRep}, #{FK_exercise_journal})
+	</insert>
+		
+	<select id="getJournalList2" resultType="Journal" >
+		SELECT 
+		journalNo, 
+		journalTitle,
+		userName ,
+		journalDate
+		FROM journal j, user u 
+		WHERE j.FK_journal_user = u.userNo
+			AND journalNo = #{journalNo}
+	</select>
+	
 	<select id="getJournalList" resultType="Journal" >
 		SELECT 
-			journalNo, 
-			journalTitle,
-			userName ,
-			journalDate
-		FROM
-			journal j, user u 
+		journalNo, 
+		journalTitle,
+		userName ,
+		journalDate
+		FROM journal j, user u 
 		WHERE j.FK_journal_user = u.userNo
 			AND userNo = #{no}
 		order	BY journalNo DESC;
 	</select>
 	
-	<select id="getExercise" resultType="exercise">
+	<select id="getExercise" resultType="Exercise">
 		SELECT
+		exerciseNo,
 		exerciseCate,
 		exerciseName,
 		exerciseWeight,
@@ -30,16 +67,12 @@
 		FK_exercise_journal = #{no}
 	</select>
 	
-	<insert id="insertJournal" parameterType="Journal">
+	<insert id="insertJournal" parameterType="Journal"
+	useGeneratedKeys="true" keyProperty="journalNo">
 		INSERT INTO journal(journalTitle, journalDate, FK_journal_user)
-		VALUES(#{title}, SYSDATE() ,#{no})
+		VALUES(#{journalTitle}, SYSDATE() ,#{FK_journal_user})
 	</insert>
-	
-	<insert id="insertExercise" parameterType="Exercise">
-		INSERT INTO exercise(exerciseCate, exerciseName, exerciseWeight, exerciseSet, exerciseRep, FK_exercise_journal)
-	    VALUES (#{exerciseCate},#{exerciseName},#{exerciseWeight},
-	    #{exerciseSet},#{exerciseRep},#{FK_exercise_journal})
-	</insert>
+
 	
 </mapper>	
 
