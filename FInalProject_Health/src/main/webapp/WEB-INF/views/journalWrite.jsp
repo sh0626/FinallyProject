@@ -7,6 +7,7 @@
 <section class="classes-section spad">
 	<div class="container">
 		<div class="row my-5">
+		<form id="jWriteForm" action="jWriteProcess" method="post">
 			<div class="col">
 				<!-- 일지 타이틀 -->
 				<div class="row">
@@ -21,79 +22,29 @@
 						<thead class="table-light">
 							<tr class="text-dark">
 								<th>
+								
 									<div class="row">
 										<div class="col-1 text-end fs-5 mt-1">
 											제목
 										</div>
 										<div class="col-3">
-											<input class="form-control" type="text">
+											<input class="form-control" type="text" name="journalTitle" id="journalTitle" 
+											placeholder="제목을 입력하시오">
 										</div>
 										<div class="col-1 text-end fs-5 mt-1">
 											작성자
 										</div>
 										<div class="col-3">
-											<input class="form-control" type="text" readonly>
-										</div>
+											<input class="form-control" type="text" name= "userName" id="userName"
+											value="" readonly>
+											<input type="hidden" name="no" id="no" value="1">
+										</div>									
 									</div>
+								
 								</th>
 							</tr>
 							</thead>
-							<thead class="table-secondary">
-								<tr class="text-dark">
-									<th>
-										<div class="row">
-											<div class="col-2">부 위</div>
-											<div class="col-3">운동명</div>
-											<div class="col-2">무 게</div>
-											<div class="col-2">세 트</div>
-											<div class="col-2">횟 수</div>
-											<div class="col-1">추 가</div>
-										</div>
-									</th>
-								</tr>
-							</thead>
-							<tbody class="text-light">
-								<tr>
-									<td colspan="6">
-										<form id="jWriteForm" action="" method="post">
-											<div class="row">
-												<div class="col-2">
-													<select id="jcate" class="form-select text-center"
-														aria-label="Default select example">
-														<option value="하체">하체</option>
-														<option value="가슴">가슴</option>
-														<option value="등">등</option>
-														<option value="어깨">어깨</option>
-														<option value="이두">이두</option>
-														<option value="삼두">삼두</option>
-														<option value="코어">코어</option>
-													</select>
-												</div>
-												<div class="col-3">
-													<input class="form-control text-end" type="text" placeholder="Name  "
-														id="jname" aria-label="default input example">
-												</div>
-												<div class="col-2">
-													<input class="form-control text-end" type="text" placeholder="Kg  "
-														id="weight" aria-label="default input example">
-												</div>
-												<div class="col-2">
-													<input class="form-control text-end" type="text" placeholder="Set  "
-														id="set" aria-label="default input example">
-												</div>
-												<div class="col-2">
-													<input class="form-control text-end" type="text" placeholder="Rep  "
-														id="rep" aria-label="default input example">
-												</div>
-												<div class="col-1">
-													<input class="btn btn-danger btnCommend" type="button"
-														value="추가">
-												</div>
-											</div>
-										</form>
-									</td>
-								</tr>
-							</tbody>
+
 						</table>
 					</div>
 				</div>
@@ -107,6 +58,7 @@
 					</div>
 				</div>
 			</div>
+			</form>
 		</div>
 	</div>
 </section>

@@ -2,8 +2,8 @@ package com.health.domain;
 
 import java.sql.Timestamp;
 
-public class exercise {
-
+public class Exercise {
+	private int exerciseNo;
 	private String exerciseCate;
 	private String exerciseName;
 	private int exerciseWeight;
@@ -11,16 +11,26 @@ public class exercise {
 	private int exerciseRep;
 	private int FK_exercise_journal;
 
-	public exercise() {}
+	public Exercise() {}
+	
 
-	public exercise(String exerciseCate, String exerciseName, int exerciseWeight, int exerciseSet, int exerciseRep,
-			int FK_exercise_journal) {
+	public Exercise(int exerciseNo, String exerciseCate, String exerciseName, int exerciseWeight, int exerciseSet,
+			int exerciseRep, int fK_exercise_journal) {
+		this.exerciseNo = exerciseNo;
 		this.exerciseCate = exerciseCate;
 		this.exerciseName = exerciseName;
 		this.exerciseWeight = exerciseWeight;
 		this.exerciseSet = exerciseSet;
 		this.exerciseRep = exerciseRep;
-		this.FK_exercise_journal = FK_exercise_journal;
+		FK_exercise_journal = fK_exercise_journal;
+	}
+
+	public int getExerciseNo() {
+		return exerciseNo;
+	}
+
+	public void setExerciseNo(int exerciseNo) {
+		this.exerciseNo = exerciseNo;
 	}
 
 	public String getExerciseCate() {
@@ -67,10 +77,9 @@ public class exercise {
 		return FK_exercise_journal;
 	}
 
-	public void setFK_exercise_journal(int FK_exercise_journal) {
-		this.FK_exercise_journal = FK_exercise_journal;
+	public void setFK_exercise_journal(int fK_exercise_journal) {
+		FK_exercise_journal = fK_exercise_journal;
 	}
 
 	
-
 }
