@@ -1,5 +1,6 @@
 package com.health.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -47,6 +48,18 @@ public class JournalDaoImpl implements JournalDao {
 	public Journal JournalList2(int journalNo) {
 		
 		return sqlSession.selectOne(NAME_SPACE+".getJournalList2", journalNo);
+	}
+
+	@Override
+	public void deleteExercise(int exerciseNo) {
+		sqlSession.delete(NAME_SPACE+".deleteExercise", exerciseNo);
+		
+	}
+
+	@Override
+	public void deleteJournal(int journalNo) {
+		sqlSession.delete(NAME_SPACE+".deleteJournal", journalNo);
+		
 	}
 
 }

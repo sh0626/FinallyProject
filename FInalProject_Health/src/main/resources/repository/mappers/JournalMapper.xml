@@ -23,13 +23,14 @@
 		WHERE exerciseNo = #{exerciseNo}
 	</update>
 		
-	
+	<!-- 운동 등록 -->
 	<insert id="insertExercise" parameterType="Exercise"
 	useGeneratedKeys="true" keyProperty="exerciseNo">
 		INSERT INTO exercise(exerciseCate, exerciseName, exerciseWeight, exerciseSet, exerciseRep, FK_exercise_journal)
 		VALUES(#{exerciseCate}, #{exerciseName}, #{exerciseWeight}, #{exerciseSet}, #{exerciseRep}, #{FK_exercise_journal})
 	</insert>
 		
+	<!-- 추가할 게시글 불러오기 -->	
 	<select id="getJournalList2" resultType="Journal" >
 		SELECT 
 		journalNo, 
@@ -40,7 +41,7 @@
 		WHERE j.FK_journal_user = u.userNo
 			AND journalNo = #{journalNo}
 	</select>
-	
+	<!-- 게시글 리스트  -->
 	<select id="getJournalList" resultType="Journal" >
 		SELECT 
 		journalNo, 
@@ -53,6 +54,7 @@
 		order	BY journalNo DESC;
 	</select>
 	
+	<!-- 게시글 해당 운동 리스트 -->
 	<select id="getExercise" resultType="Exercise">
 		SELECT
 		exerciseNo,
@@ -73,6 +75,16 @@
 		VALUES(#{journalTitle}, SYSDATE() ,#{FK_journal_user})
 	</insert>
 
+	<!-- 운동 삭제 -->
+	<delete id="deleteExercise">
+	    DELETE FROM exercise
+   		WHERE exerciseNo = #{exerciseNo}
+	</delete>
+	
+	<delete id="deleteJournal">
+	    DELETE FROM journal
+   		WHERE journalNo = #{journalNo}
+	</delete>
 	
 </mapper>	
 
