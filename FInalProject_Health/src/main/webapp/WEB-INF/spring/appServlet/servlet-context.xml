@@ -36,4 +36,5 @@
 	
 	<view-controller path="/schedule" view-name="schedule"/>
 	<view-controller path="/inBody" view-name="inBody"/>
+	<view-controller path="/inBodyWrite" view-name="inBodyWrite"/>
 </beans:beans>

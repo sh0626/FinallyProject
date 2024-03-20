@@ -33,7 +33,8 @@
   	  {
   	   title : '<%=dto.getSubject()%>',
   	   start : '<%=dto.getStartDate()%>',
-  	   end : '<%=dto.getEndDate()%>'
+  	   end : '<%=dto.getEndDate()%>',
+  	   memo : '<%=dto.getMemo()%>'
   	   },
 <%}%>
 		{
@@ -59,10 +60,6 @@
 						<h3 class="page-header">
 							일정 관리
 						</h3>
-						<ol class="breadcrumb">
-							<li><i class="fa fa-home"></i><a href="">메인</a></li>
-							<li><i class="fa fa-files-o"></i>일정 관리</li>
-						</ol>
 					</div>
 					<!-- Form validations -->
 					<div class="row">
