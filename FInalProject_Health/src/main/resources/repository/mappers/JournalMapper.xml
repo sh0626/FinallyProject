@@ -6,11 +6,12 @@
 
 	<select id="getJournalList" resultType="Journal" >
 		SELECT 
-		journalNo, 
-		journalTitle,
-		userName ,
-		journalDate
-		FROM journal j, user u 
+			journalNo, 
+			journalTitle,
+			userName ,
+			journalDate
+		FROM
+			journal j, user u 
 		WHERE j.FK_journal_user = u.userNo
 			AND userNo = #{no}
 		order	BY journalNo DESC;
@@ -33,6 +34,7 @@
 		INSERT INTO journal(journalTitle, journalDate, FK_journal_user)
 		VALUES(#{title}, SYSDATE() ,#{no})
 	</insert>
+	
 	<insert id="insertExercise" parameterType="Exercise">
 		INSERT INTO exercise(exerciseCate, exerciseName, exerciseWeight, exerciseSet, exerciseRep, FK_exercise_journal)
 	    VALUES (#{exerciseCate},#{exerciseName},#{exerciseWeight},
