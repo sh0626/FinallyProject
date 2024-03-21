@@ -4,13 +4,13 @@ import java.sql.Timestamp;
 
 public class Member {
 	
-	private String userName, age, gender, phone1, phone2, phone3, authority, id, pw;
+	private String userName, age, gender, phone1, phone2, phone3, authority, id, pw, regPoint;
 	private int userNo, possessNum, totalNum;
 	private Timestamp regDate;
 
 	public Member() {}
 
-	public Member(String userName, String age, String gender, String phone1, String phone2, String phone3,
+	public Member(String userName, String age, String gender, String phone1, String phone2, String phone3, String regPoint,
 			String authority, String id, String pw, int userNo, int possessNum, int totalNum, Timestamp regDate) {
 		super();
 		this.userName = userName;
@@ -26,6 +26,16 @@ public class Member {
 		this.possessNum = possessNum;
 		this.totalNum = totalNum;
 		this.regDate = regDate;
+		this.regPoint = regPoint;
+	}
+
+
+	public String getRegPoint() {
+		return regPoint;
+	}
+
+	public void setRegPoint(String regPoint) {
+		this.regPoint = regPoint;
 	}
 
 	public String getUserName() {
@@ -131,5 +141,6 @@ public class Member {
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 	}
+
 	
 }

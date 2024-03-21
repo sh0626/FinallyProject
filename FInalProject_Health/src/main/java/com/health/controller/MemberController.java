@@ -61,7 +61,8 @@ public class MemberController {
 		session.setAttribute("isLogin", true);
 
 		model.addAttribute("member", member);
-		System.out.println("member.name : " + member.getUserName());
+		System.out.println("member.userName : " + member.getUserName());
+		System.out.println("member.user권한 : " + member.getAuthority());
 
 		return "redirect:/main";
 	}
@@ -72,5 +73,35 @@ public class MemberController {
 		session.invalidate();
 
 		return "redirect:/main";
+	}
+	
+	@RequestMapping("/joinResult")
+	public String joinResult(Model model, Member member, String authority, String id, String pw1, String userName, 
+									String phone1, String phone2, String phone3, String gender, String age, String regPoint) {
+		member.setAuthority(authority);
+		member.setUserName(userName);
+		member.setId(id);
+		member.setPw(pw1);
+		member.setPhone1(phone1);
+		member.setPhone2(phone2);
+		member.setPhone3(phone3);
+		member.setGender(gender);
+		member.setAge(age);
+		member.setRegPoint(regPoint);
+		
+		memberService.addMember(member);
+		System.out.println("joinResult : " + member.getUserName());
+		
+		return "redirect:loginForm";
+	}
+	
+	@RequestMapping("/overIdCheck")
+	public String overlapIdCheck(Model model, String id) {
+		boolean overlap = memberService.overlapIdCheck(id);
+		
+		model.addAttribute("id", id);
+		model.addAttribute("overlap", overlap);
+		
+		return "forward:WEB-INF/views/memver/overlapIdCheck.jsp";
 	}
 }

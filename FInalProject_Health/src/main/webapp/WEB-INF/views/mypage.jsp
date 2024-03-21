@@ -48,114 +48,63 @@
 							<tr>
 								<td>이름</td>
 								<td><input type="text" name="name"
-									value="${loginUser.name }" readonly="readonly"></td>
+										value="${userName}" readonly="readonly"></td>
 							</tr>
 							
 							<tr>
-								<td>비밀번호</td>
-								<td><input type="password" name="pass"></td>
-							</tr>
-							<tr>
-								<td>이름</td>
-								<td><input type="text" name="name"
-									value="${loginUser.name }" readonly="readonly"></td>
+								<td>ID</td>
+								<td><input type="text" name="id"
+										value="${id}" readonly="readonly"></td>
 							</tr>
 							
 							<tr>
-								<td>휴대폰번호1</td>
-								<td><input type="text" name="phone"
-									value="${loginUser.phone1 }"></td>
-							</tr>
-							<tr>
-								<td>휴대폰번호2</td>
-								<td><input type="text" name="phone"
-									value="${loginUser.phone2 }"></td>
-							</tr>
-							<tr>
-								<td>휴대폰번호3</td>
-								<td><input type="text" name="phone"
-									value="${loginUser.phone3 }"></td>
+								<td>PW</td>
+								<td><input type="password" name="pw"></td>
 							</tr>
 							
+							<tr>
+								<td>휴대폰 번호</td>
+								<td><input type="text" name="phone"
+										value="${phone1}-${phone2}-${phone3}"></td>
+							</tr>
+						
+							<tr>
+								<td colspan="5">헬스장 정보</td>
+							</tr>
 							
 							<tr>
 								<td>최초 등록일</td>
-								<td><input type="text" name="phone"
-									value="${regDate }"></td>
+								<td><input type="text" name="regDate"
+										value="${regDate}"></td>
 							</tr>
+							
 							<tr>
 								<td>최초 등록 지점</td>
-								<td><input type="text" name="phone"
-									value="${regPoint }"></td>
+								<td><input type="text" name="regPoint"
+										value="${regPoint}"></td>
 							</tr>
 							
 							<tr>
 								<td>PT 잔여 횟수</td>
-								<td><input type="text" name="phone"
-									value="${ptPossessNum }"></td>
+								<td><input type="text" name="ptPossessNum"
+										value="${ptPossessNum}"></td>
 							</tr>
 							
 								<tr>
 								<td>짐 이용 잔여 횟수</td>
-								<td><input type="text" name="phone"
-									value="${possessNum}"></td>
+								<td><input type="text" name="possessNum"
+										value="${possessNum}"></td>
 							</tr>
 							
 							<tr>
 								<td>사물함</td>
-								<td><input type="text" name="phone"
-									value="${locker}"></td>
+								<td><input type="text" name="locker"
+										value="${locker}"></td>
 							</tr>
-							
-							
-							
-							<tr>
-								<td style="type =padding: 10px">권한</td>
-								<td><select name="athority">
-										<c:choose>
-											<c:when test="${result == 2 }">
-												<option value="A" selected="selected">관리자</option>
-												<option value="B">트레이너</option>
-
-											</c:when>
-											<c:otherwise>
-												<option value="A">관리자</option>
-												<option value="B" selected="selected">트레이너</option>
-												<br>
-												<br>
-												<br>
-												<br>
-
-											</c:otherwise>
-										</c:choose>
-								</select></td>
-							</tr>
-
-							<tr>
-								<td>성별</td>
-								<td><select name="gender">
-										<c:choose>
-											<c:when test="${loginUser.gender == 1}">
-												<option value="1" selected="selected">남자</option>
-												<option value="2">여자</option>
-											</c:when>
-											<c:otherwise>
-												<option value="1">남자</option>
-												<option value="2" selected="selected">여자</option>
-											</c:otherwise>
-										</c:choose>
-								</select></td>
-							</tr>
-							<tr>
-								<td>휴대폰번호</td>
-								<td><input type="text" name="phone"
-									value="${loginUser.phone }"></td>
-							</tr>
-							
-							
+					
 							<tr align="center">
-								<td colspan="2"><input type="submit" value="수정하기">
-									&nbsp; <input type="reset" value="취소"></td>
+								<td colspan="2"><input type="submit" value="수정하기">&nbsp; 
+								<input type="reset" value="취소"></td>
 							</tr>
 						</table>
 					</form>
