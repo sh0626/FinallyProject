@@ -20,7 +20,7 @@
 									</p>
 									<p>
 										<label for="userPass" class="labelStyle">비밀번호</label>
-										<input type="password" id="userPass" name="pass" />
+										<input type="password" id="userPw" name="pw" />
 									</p>
 									<input type="submit" class="c-btn" value="로그인" id="btnLogin" />
 								</div>

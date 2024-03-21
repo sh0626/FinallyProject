@@ -25,6 +25,7 @@
 	
 	<view-controller path="/loginForm" view-name="loginForm"/>
 	<view-controller path="/register" view-name="register"/>
+	<view-controller path="/mypage" view-name="/mypage"/>
 	
 	<view-controller path="trainingJournal" view-name="trainingJournal"/>
 	<view-controller path="/journalDetail" view-name="journalDetail"/>
