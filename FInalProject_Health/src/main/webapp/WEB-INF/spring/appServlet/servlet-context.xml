@@ -24,7 +24,7 @@
 	<redirect-view-controller path="/" redirect-url="main" />
 	
 	<view-controller path="/loginForm" view-name="loginForm"/>
-	<view-controller path="/register" view-name="register"/>
+	<view-controller path="/memberJoinForm" view-name="memberJoinForm"/>
 	<view-controller path="/mypage" view-name="/mypage"/>
 	
 	<view-controller path="trainingJournal" view-name="trainingJournal"/>

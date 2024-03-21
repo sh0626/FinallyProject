@@ -4,6 +4,26 @@
 
 <mapper namespace="com.health.mapper.MemberMapper" >
 	<select id="getMember" resultType="Member">
-		SELECT * FROM user WHERE id = #{id}
+		SELECT * 
+		FROM id i
+		left JOIN user u
+		on i.FK_id_user = u.userNo
+		WHERE i.id = #{id}
 	</select>	
+	
+	<insert id="addMember" parameterType="Member">
+		INSERT INTO user (userName, phone1, phone2, phone3, gender, age, regDate)
+		VALUES(#{userName}, #{phone1}, #{phone2}, #{phone3},
+		#{gender}, #{age}, SYSDATE())
+	</insert>
+	
+	<insert id="addMemberInfo" parameterType="Member">
+		INSERT INTO regInfo (regPoint)
+		VALUES (#{regPoint})
+	</insert>
+	
+	<insert id="addId" parameterType="Member">
+		INSERT INTO id (id, pw, authority)
+		VALUES (#{id}, #{pw}, #{authority} )
+	</insert>
 </mapper>

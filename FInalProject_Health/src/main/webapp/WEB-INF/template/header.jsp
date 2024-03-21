@@ -39,11 +39,22 @@
 					<div class="col">	
 						<c:if test="${not sessionScope.isLogin }" >
 							<a class="nav-link" href="loginForm">로그인</a>
-							<a class="nav-link" href="register">회원가입</a></c:if>
+							<a class="nav-link" href="memberJoinForm">회원가입</a></c:if>
 						<c:if test="${sessionScope.isLogin}">
 							<a class="nav-link" href="logout">로그아웃</a>
 							<a class="nav-link" href="mypage">마이페이지</a>
-							<div>안녕하세요 ${sessionScope.member.userName}님~</div></c:if>			
+								<c:choose>
+									<c:when test="${sessionScope.member.authority eq '0'}">
+						                <div>관리자 계정입니다.</div>
+						            </c:when>
+									<c:when test="${sessionScope.member.authority eq '1'}">
+						                <div>안녕하세요 ${sessionScope.member.userName} 트레이너님~</div>
+						            </c:when>
+						            <c:when test="${sessionScope.member.authority eq '2'}">
+						                <div>안녕하세요 ${sessionScope.member.userName} 회원님~</div>
+						            </c:when>
+								</c:choose>
+						</c:if>			
 					</div>
 				</div>
 			</div>
