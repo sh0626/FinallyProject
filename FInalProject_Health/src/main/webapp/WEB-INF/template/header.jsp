@@ -34,17 +34,18 @@
 					</ul>
 				</nav>
 			</div>
-
 			<div class="col-2 text-end come">
 				<div class="row">
-					<div class="col">
-						<a href="loginForm">로그인</a>
-					</div>
-					<div class="col">
-						<a href="register">회원가입</a>
+					<div class="col">	
+						<c:if test="${not sessionScope.isLogin }" >
+							<a class="nav-link" href="loginForm">로그인</a>
+							<a class="nav-link" href="register">회원가입</a></c:if>
+						<c:if test="${sessionScope.isLogin}">
+							<a class="nav-link" href="logout">로그아웃</a>
+							<a class="nav-link" href="mypage">마이페이지</a>
+							<div>안녕하세요 ${sessionScope.member.userName}님~</div></c:if>			
 					</div>
 				</div>
-				<div>안녕하세요 OOO님~</div>
 			</div>
 		</div>
 	</div>
