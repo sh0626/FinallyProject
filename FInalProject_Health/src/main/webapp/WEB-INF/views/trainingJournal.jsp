@@ -33,9 +33,9 @@
 								</tr>
 							</thead>
 							<tbody class="text-light">
-								<c:forEach var="j" items="${jList}">
+								<c:forEach var="j" items="${jList}"  varStatus="num">
 									<tr>
-										<td>${j.journalNo}</td>
+										<td>${jList.size() - num.index}</td>
 										<td><a href="journalDetail?journalNo=${j.journalNo}"
 											class="text-decoration-none text-light">${j.journalTitle}</a></td>
 										<td>${j.userName}</td>

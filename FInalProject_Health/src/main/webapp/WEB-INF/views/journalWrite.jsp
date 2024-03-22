@@ -36,7 +36,7 @@
 										</div>
 										<div class="col-3">
 											<input class="form-control" type="text" name= "userName" id="userName"
-											value="" readonly>
+											value="${sessionScope.member.userName}" readonly>
 											<input type="hidden" name="no" id="no" value="1">
 										</div>									
 									</div>
