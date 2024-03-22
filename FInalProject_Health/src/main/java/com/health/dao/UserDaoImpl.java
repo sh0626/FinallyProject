@@ -5,7 +5,12 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+
 import com.health.domain.User;
+import com.health.domain.Locker;
+import com.health.domain.Pt;
+import com.health.domain.RegInfo;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -29,5 +34,30 @@ public class UserDaoImpl implements UserDao {
 	public User getUser(int userNo) {
 		return sqlSession.selectOne(NAME_SPACE + ".getUser", userNo);
 	}
+
+	@Override
+	public List<RegInfo> getReginfo(int userNo) {
+		return sqlSession.selectList(NAME_SPACE + ".getUserRegdata", userNo);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		sqlSession.update(NAME_SPACE+".updateUser", user);
+		
+	}
+
+	@Override
+	public void updatePt(Pt pt) {
+		sqlSession.update(NAME_SPACE+".updatePt", pt);
+		
+	}
+
+	@Override
+	public void updateLocker(Locker locker) {
+		sqlSession.update(NAME_SPACE+".updateLocker", locker);
+		
+	}
+
+
 	
 }

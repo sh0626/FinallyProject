@@ -4,7 +4,7 @@
 
 <mapper namespace="com.health.mapper.UserMapper" >
 
-	<select id="userList" resultType="User" resultMap="userResultMap">
+	<select id="userList" resultType="User">
 		SELECT 
 		    u.userNo, 
 		    u.userName, 
@@ -23,55 +23,65 @@
 		ORDER BY u.userNo DESC;
 	</select>
 	
-	<select id="getUser" resultType="User" resultMap="userDetailMap">
+	<select id="getUser" resultType="User" >
 		SELECT
-			u.userNo,
-			u.userName,
-			u.age,
-			u.phone1, u.phone2, u.phone3,
-			u.regDate,
-			u.possessNum,
-			e.employeeName,
-			r.regPoint,
-			pt.ptPossessNum,
-			l.lockerRegDate
+		    u.userNo,
+		    u.userName,
+		    u.age,
+		    u.phone1, u.phone2, u.phone3,
+		    u.regDate,
+		    u.possessNum,
+		    e.employeeName,
+		    r.regPoint,
+		    pt.ptPossessNum,
+		    l.lockerRegDate,
+		    l.lockerNo,
+		    l.lockerDdate
 		FROM
-			user u
-		JOIN
-			locker l ON u.userNo = l.FK_locker_user
-		JOIN
-			pt ON u.userNo = pt.FK_pt_user
-		JOIN	
-			employee e ON pt.FK_pt_employee = e.employeeNo
-		JOIN
-		   	regInfo r ON u.userNo = r.FK_regInfo_user;
+		    user u
+		LEFT JOIN
+		    locker l ON u.FK_user_locker = l.lockerNo
+		LEFT JOIN
+		    pt ON u.userNo = pt.FK_pt_user
+		LEFT JOIN    
+		    employee e ON pt.FK_pt_employee = e.employeeNo
+		LEFT JOIN
+		    regInfo r ON u.userNo = r.FK_regInfo_user
+		WHERE userNo = #{no};
 	</select>
 	
-	<resultMap id="userResultMap" type="User">
-	    <id property="userNo" column="userNo"/>
-	    <result property="userName" column="userName"/>
-	    <result property="phone1" column="phone1"/>
-	    <result property="phone2" column="phone2"/>
-	    <result property="phone3" column="phone3"/>
-	    <result property="possessNum" column="possessNum"/>
-	    <result property="employeeName" column="employeeName"/>
-	    <result property="ptPossessNum" column="ptPossessNum"/>
-	</resultMap>
+	<select id="getUserRegdata" resultType="RegInfo" >
+		SELECT
+		    *
+		FROM
+		regInfo 
+		WHERE FK_regInfo_user = #{no};
+	</select>
 	
-	<resultMap id="userDetailMap" type="User">
-	    <id property="userNo" column="userNo"/>
-	    <result property="userName" column="userName"/>
-	    <result property="age" column="age"/>
-	    <result property="phone1" column="phone1"/>
-	    <result property="phone2" column="phone2"/>
-	    <result property="phone3" column="phone3"/>
-	    <result property="regDate" column="regDate"/>
-	    <result property="possessNum" column="possessNum"/>
-	    <result property="employeeName" column="employeeName"/>
-	    <result property="regPoint" column="regPoint"/>
-	    <result property="ptPossessNum" column="ptPossessNum"/>
-	    <result property="lockerRegDate" column="lockerRegDate"/>
-	</resultMap>
+	
+	
+	<update id="updateUser" parameterType="User">
+		UPDATE user
+			SET userName=#{userName},  age=#{age}, phone1=#{phone1},
+			phone2=#{phone2}, phone3=#{phone3}, FK_user_locker=#{FK_user_locker}
+		WHERE userNo = #{userNo}
+	</update>
+	
+	<update id="updatePt" parameterType="Pt">
+		UPDATE pt
+		SET FK_pt_employee = (
+		    SELECT employeeNo 
+		    FROM employee 
+		    WHERE employeeName = #{employeeName}
+		)
+		WHERE FK_pt_user = #{userNo};
+	</update>
+	
+	<update id="updateLocker" parameterType="Locker">
+		UPDATE user 
+		SET lockerNo= #{lockerNo}, lockerRegDate= #{lockerRegDate}, lockerDdate = #{lockerDdate}
+		WHERE userNo=#{userNo}
+	</update>
 </mapper>	
 
 
