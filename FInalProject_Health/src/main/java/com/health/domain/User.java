@@ -15,11 +15,16 @@ public class User {
 	private int totalNum;
 	private int ptPossessNum;
 	private String employeeName;
+	private String regPoint;
+	private int lockerNo;
+	private Timestamp lockerRegDate;
+	private Timestamp lockerDdate;
 	
 	public User() {}
 
 	public User(int userNo, String userName, String age, String gender, Timestamp regDate, String phone1, String phone2,
-			String phone3, int possessNum, int totalNum) {
+			String phone3, int possessNum, int totalNum, int ptPossessNum, String employeeName, String regPoint,
+			int lockerNo, Timestamp lockerRegDate, Timestamp lockerDdate) {
 		this.userNo = userNo;
 		this.userName = userName;
 		this.age = age;
@@ -30,6 +35,12 @@ public class User {
 		this.phone3 = phone3;
 		this.possessNum = possessNum;
 		this.totalNum = totalNum;
+		this.ptPossessNum = ptPossessNum;
+		this.employeeName = employeeName;
+		this.regPoint = regPoint;
+		this.lockerNo = lockerNo;
+		this.lockerRegDate = lockerRegDate;
+		this.lockerDdate = lockerDdate;
 	}
 
 	public int getUserNo() {
@@ -116,7 +127,7 @@ public class User {
 		return ptPossessNum;
 	}
 
-	public void setPtPossessCount(int ptPossessNum) {
+	public void setPtPossessNum(int ptPossessNum) {
 		this.ptPossessNum = ptPossessNum;
 	}
 
@@ -127,7 +138,38 @@ public class User {
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
-	
-	
-	
+
+	public String getRegPoint() {
+		return regPoint;
+	}
+
+	public void setRegPoint(String regPoint) {
+		this.regPoint = regPoint;
+	}
+
+	public int getLockerNo() {
+		return lockerNo;
+	}
+
+	public void setLockerNo(int lockerNo) {
+		this.lockerNo = lockerNo;
+	}
+
+	public Timestamp getLockerRegDate() {
+		return lockerRegDate;
+	}
+
+	public void setLockerRegDate(Timestamp lockerRegDate) {
+		this.lockerRegDate = lockerRegDate;
+	}
+
+	public Timestamp getLockerDdate() {
+		return lockerDdate;
+	}
+
+	public void setLockerDdate(Timestamp lockerDdate) {
+		this.lockerDdate = lockerDdate;
+	}
+
+
 }

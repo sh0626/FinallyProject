@@ -56,10 +56,10 @@
 								<tr>
 									<td colspan="6">
 										<form id="jWriteForm" action="eWriteProcess" method="post">
+											<div class="row my-3 exercises" name="exercises">
 											<input type="hidden" name="journalNo" id="journalNo" value="${journal.journalNo}">
-											<div class="row my-3">
 												<div class="col-2">
-													<select id="exerciseCate" name ="exerciseCate" class="form-select text-center"
+													<select id="exerciseCate" name ="exerciseCate" class="exerciseCate form-select text-center"
 														aria-label="Default select example">
 														<option value="하체">하체</option>
 														<option value="가슴">가슴</option>
@@ -71,31 +71,31 @@
 													</select>
 												</div>
 												<div class="col-3">
-													<input class="form-control text-end" type="text" placeholder="Name  "
-														id="exerciseName" name ="exerciseName" aria-label="default input example">
+													<input class="exerciseName form-control text-end" type="text" placeholder="Name  "
+														id="exerciseName"  name ="exerciseName" aria-label="default input example">
 												</div>
 												<div class="col-2">
-													<input class="form-control text-end" type="number" placeholder="Kg  "
+													<input class="exerciseWeight form-control text-end" type="number" placeholder="Kg  "
 														id="exerciseWeight" name ="exerciseWeight" aria-label="default input example">
 												</div>
 												<div class="col-2">
-													<input class="form-control text-end" type="number" placeholder="Set  "
+													<input class="exerciseSet form-control text-end" type="number" placeholder="Set  "
 														id="exerciseSet" name ="exerciseSet" aria-label="default input example">
 												</div>
 												<div class="col-2">
-													<input class="form-control text-end" type="number" placeholder="Rep  "
+													<input class="exerciseRep form-control text-end" type="number" placeholder="Rep  "
 														id="exerciseRep" name ="exerciseRep"aria-label="default input example">
 												</div>
 												<div class="col-1">
-												<input type="submit" value="등록" class="btn btn-danger btnCommend" id="btnInsert" />
-												<!-- 	<input class="btn btn-danger btnCommend" type="button" id="addFormBtn"
-														value="추가"> -->
+												<input class="btn btn-danger btnCommend" type="button" id="addFormBtn"
+														value="추가">
 												</div>
 											</div>
 											<div class="row my-2">
 												<div class="col text-end">
 													<div class="text-end">
 														
+														<input type="submit" value="등록" class="btn btn-danger btnCommend" id="btnInsert" />
 														<input type="button" value="일지" class="btn btn-danger btnCommend" id="btnReturn"
 														onclick="location.href='journalDetail?journalNo=${journal.journalNo}'"/>
 													</div>

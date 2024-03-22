@@ -27,7 +27,6 @@ public class UserController {
 			User user = userService.getUser(userNo);
 			
 			model.addAttribute("user", user);
-			
 			return "userDetail";
 		}
 		

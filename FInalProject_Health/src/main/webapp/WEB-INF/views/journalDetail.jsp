@@ -51,7 +51,7 @@
 					<div class="row my-2">
 						<div class="col text-end">
 							<div class="text-end">
-								<input type="button" value="수정" class="btn btn-danger btnCommend" id="btnUpdate" />
+								<!-- <input type="button" value="수정" class="btn btn-danger btnCommend" id="btnUpdate" /> -->
 								<input type="button" value="등록" class="btn btn-danger btnCommend" id="btnInsert" 
 								onclick="location.href='exerciseWrite?journalNo=${journalNo}'"/>
 								<input type="button" value="삭제" class="btn btn-danger btnCommend" id="btnDelete" />
