@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="resources/css/index.css" type="text/css">
 <link rel="stylesheet" href="resources/css/loginForm.css" type="text/css">
 <link rel="stylesheet" href="resources/css/inBody.css" type="text/css">
+<link rel="stylesheet" href="resources/css/employeeDetail.css" type="text/css">
 
 <!-- custom -->
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">

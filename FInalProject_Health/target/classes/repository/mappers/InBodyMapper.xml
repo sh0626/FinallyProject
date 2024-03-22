@@ -11,8 +11,12 @@
 			inbodyURL,
 			FK_inbody_user,
 			userName
-		from inbody i left outer join user u
-		ON i.FK_inbody_user = u.userNo;
+		from 
+			inbody i left outer join user u
+		ON 
+			i.FK_inbody_user = u.userNo
+		WHERE 
+			i.FK_inbody_user = #{no};
 	</select>
 
 	<insert id="addInBody" parameterType="InBodyDTO">

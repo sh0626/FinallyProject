@@ -9,7 +9,7 @@
 			<div class="col">
 				<div class="row text-center">
 					<div class="col">
-						<h2 class="fs-3 fw-bold" style="color: white">인바디 상세보기</h2>
+						<h2 class="fs-3 fw-bold" style="color: white">인바디</h2>
 					</div>
 				</div>
 				<div class="row my-3">
@@ -22,9 +22,9 @@
 										<th class="table-secondary">날짜</th>
 										<th class="table-secondary">파일</th>
 									</tr>
-								<c:forEach var="i" items="${inBody}">
+								<c:forEach var="i" items="${inBody}" varStatus="status">
 									<tr>
-										<td class="data">${i.inbodyNo}</td>
+										<td class="data">${inBody.size() - status.index + 1}</td>
 										<td class="data">${i.userName}</td>
 										<td class="data">${i.inbodyDate}</td>
 										<td class="data"><a href="fileDownload?fileName=${i.inbodyURL}">${i.inbodyURL}</a></td>
@@ -38,7 +38,6 @@
 				<div class="col text-end">
 					<div class="text-end">
 						<a href="inBodyWrite" class="btn btn-danger btnCommend">등록</a>
-						<a class="btn btn-danger btnCommend">삭제</a>
 					</div>
 				</div>
 			</div>

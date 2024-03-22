@@ -16,8 +16,8 @@ public class InBodyServiceImpl implements InBodyService {
 	private InBodyDAO inBodyDAO;
 
 	@Override
-	public Map<String, Object> getInBody() {
-		List<InBodyDTO> getInBody = inBodyDAO.InBodyList();
+	public Map<String, Object> getInBody(int no) {
+		List<InBodyDTO> getInBody = inBodyDAO.InBodyList(no);
 
 		Map<String, Object> modelMap = new HashMap<String, Object>();
 		modelMap.put("inBody", getInBody);
@@ -30,4 +30,9 @@ public class InBodyServiceImpl implements InBodyService {
 		inBodyDAO.insertInBody(inBodyDTO);
 	}
 
+
+
+	
+	
+	
 }
