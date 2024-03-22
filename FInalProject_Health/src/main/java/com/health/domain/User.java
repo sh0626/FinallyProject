@@ -1,5 +1,6 @@
 package com.health.domain;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class User {
@@ -17,14 +18,18 @@ public class User {
 	private String employeeName;
 	private String regPoint;
 	private int lockerNo;
-	private Timestamp lockerRegDate;
-	private Timestamp lockerDdate;
+	//private Timestamp lockerRegDate;
+	//private Timestamp lockerDdate;
+	private Date lockerRegDate;
+	private Date lockerDdate;
+	private int FK_user_locker;
 	
 	public User() {}
 
 	public User(int userNo, String userName, String age, String gender, Timestamp regDate, String phone1, String phone2,
 			String phone3, int possessNum, int totalNum, int ptPossessNum, String employeeName, String regPoint,
-			int lockerNo, Timestamp lockerRegDate, Timestamp lockerDdate) {
+			int lockerNo, Date lockerRegDate, Date lockerDdate, int fK_user_locker) {
+		super();
 		this.userNo = userNo;
 		this.userName = userName;
 		this.age = age;
@@ -41,6 +46,7 @@ public class User {
 		this.lockerNo = lockerNo;
 		this.lockerRegDate = lockerRegDate;
 		this.lockerDdate = lockerDdate;
+		FK_user_locker = fK_user_locker;
 	}
 
 	public int getUserNo() {
@@ -155,21 +161,28 @@ public class User {
 		this.lockerNo = lockerNo;
 	}
 
-	public Timestamp getLockerRegDate() {
+	public Date getLockerRegDate() {
 		return lockerRegDate;
 	}
 
-	public void setLockerRegDate(Timestamp lockerRegDate) {
+	public void setLockerRegDate(Date lockerRegDate) {
 		this.lockerRegDate = lockerRegDate;
 	}
 
-	public Timestamp getLockerDdate() {
+	public Date getLockerDdate() {
 		return lockerDdate;
 	}
 
-	public void setLockerDdate(Timestamp lockerDdate) {
+	public void setLockerDdate(Date lockerDdate) {
 		this.lockerDdate = lockerDdate;
 	}
 
+	public int getFK_user_locker() {
+		return FK_user_locker;
+	}
+
+	public void setFK_user_locker(int fK_user_locker) {
+		FK_user_locker = fK_user_locker;
+	}
 
 }

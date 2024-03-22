@@ -47,7 +47,6 @@
 						</table>
 					</div>
 				</div>
-				<div class="row my-2"></div>
 			</div>
 		</div>
 	</div>

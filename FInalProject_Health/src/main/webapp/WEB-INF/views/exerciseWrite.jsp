@@ -55,7 +55,7 @@
 							<tbody class="text-light">
 								<tr>
 									<td colspan="6">
-										<form id="jWriteForm" action="eWriteProcess" method="post">
+										<form id="eWriteProcess" action="eWriteProcess" method="post">
 											<div class="row my-3 exercises" name="exercises">
 											<input type="hidden" name="journalNo" id="journalNo" value="${journal.journalNo}">
 												<div class="col-2">
