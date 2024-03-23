@@ -24,6 +24,7 @@
 						<li><a href="employeeDetail">트레이너 소개</a></li>
 						<li><a href="#">메뉴</a>
 							<ul class="dropdown">
+								<li><a href="attendance">출석</a></li>
 								<li><a href="trainingJournal">운동 일지</a></li>
 								<li><a href="inBody">인바디</a></li>
 								<li><a href="schedule">달력</a></li>

@@ -1,18 +1,15 @@
 package com.health.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.health.dao.JournalDao;
 import com.health.domain.Journal;
 import com.health.domain.Exercise;
-
 
 @Service
 public class JournalServiceImpl implements JournalService {
