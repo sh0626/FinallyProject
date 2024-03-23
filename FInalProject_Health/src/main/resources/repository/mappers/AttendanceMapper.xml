@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.health.mapper.AttendanceMapper">
+	
+	<!-- 출석확인 정보 -->
+	<select id="getAttend" resultType="Attendance">
+		SELECT 
+			u.userNo, u.userName, u.possessNum, a.attendanceNo, a.attendanceDate
+		FROM 
+			user u inner join attendance a
+		ON 
+			u.userNo = a.FK_attendance_user
+		ORDER BY a.attendanceNo DESC LIMIT 1;
+	</select>
+
+	<!-- 출석 기록 -->
+	<insert id="insertAttend" parameterType="Attendance">
+		INSERT
+			attendance(attendanceDate, FK_attendance_user)
+		VALUES
+			(SYSDATE(), #{no});
+	</insert>
+	
+	<!-- 잔여횟수 업데이트 -->
+	<update id="updateAttend" parameterType="Attendance">
+		UPDATE user
+		set possessNum = possessNum -1
+		WHERE userNo=#{no};
+	</update>
+</mapper>	
+
+
+

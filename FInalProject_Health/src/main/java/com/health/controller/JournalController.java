@@ -83,10 +83,6 @@ public class JournalController {
 		return "redirect:trainingJournal";
 	}
 	
-	
-
-	
-	
 	@RequestMapping(value = "/trainingJournal", method = RequestMethod.GET)
 	public String getJournal(Model model,
 			HttpServletRequest request, HttpSession session ,

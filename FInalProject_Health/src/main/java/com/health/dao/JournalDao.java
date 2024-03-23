@@ -1,6 +1,5 @@
 package com.health.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.health.domain.Exercise;

@@ -39,4 +39,5 @@
 	<view-controller path="/inBody" view-name="inBody"/>
 	<view-controller path="/inBodyWrite" view-name="inBodyWrite"/>
 	<view-controller path="/employeeDetail" view-name="employeeDetail"/>
+	<view-controller path="/attendance" view-name="attendance"/>
 </beans:beans>
