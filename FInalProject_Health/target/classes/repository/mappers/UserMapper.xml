@@ -78,9 +78,9 @@
 	</update>
 	
 	<update id="updateLocker" parameterType="Locker">
-		UPDATE user 
-		SET lockerNo= #{lockerNo}, lockerRegDate= #{lockerRegDate}, lockerDdate = #{lockerDdate}
-		WHERE userNo=#{userNo}
+		UPDATE locker 
+		SET lockerRegDate= #{lockerRegDate}, lockerDdate = #{lockerDdate}
+		WHERE lockerNo=#{lockerNo}
 	</update>
 </mapper>	
 

@@ -30,11 +30,9 @@ public class UserController {
 			
 			
 			User user = userService.getUser(userNo);
-			List<RegInfo> regInfo= userService.getReginfo(userNo);
-			
+			List<RegInfo> regInfo= userService.getReginfo(userNo);	
 			model.addAttribute("user", user);
 			model.addAttribute("regInfo", regInfo);
-
 			return "userDetail";
 		}
 		
@@ -72,7 +70,12 @@ public class UserController {
 			  userService.updateUser(user); //userService.updatePt(pt);
 			  //userService.updateLocker(locker);
 			  
-		
+			  Locker locker =new Locker();
+			  locker.setLockerNo(FK_user_locker);
+			  locker.setLockerRegDate(lockerRegDate);
+			  locker.setLockerDdate(lockerDdate);
+			  
+			  userService.updateLocker(locker);
 			 
 			return "redirect:userDetail?userNo="+ user.getUserNo();
 		

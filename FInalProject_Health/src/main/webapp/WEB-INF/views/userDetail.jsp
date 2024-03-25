@@ -28,9 +28,9 @@
 												<div class="row">
 													<div class="col-7">회원번호 :</div>
 													<div class="col-5">
-														<input class="userNo form-control text-end"
-															type="text" value="${user.userNo}" id="userNo"
-															name="userNo" aria-label="default input example" readonly>
+														<input class="userNo form-control text-end" type="text"
+															value="${user.userNo}" id="userNo" name="userNo"
+															aria-label="default input example" readonly>
 													</div>
 												</div>
 											</div>
@@ -38,9 +38,9 @@
 												<div class="row">
 													<div class="col-6">회원명 :</div>
 													<div class="col-6">
-														<input class="userName form-control text-end"
-															type="text" value="${user.userName}" id="userName"
-															name="userName" aria-label="default input example">
+														<input class="userName form-control text-end" type="text"
+															value="${user.userName}" id="userName" name="userName"
+															aria-label="default input example">
 													</div>
 												</div>
 											</div>
@@ -48,12 +48,46 @@
 												<div class="row">
 													<div class="col-6">나이(만) :</div>
 													<div class="col-6">
-														<input class="age form-control text-end"
-															type="text" value="${user.age}" id="age" name="age"
+														<input class="age form-control text-end" type="text"
+															value="${user.age}" id="age" name="age"
 															aria-label="default input example">
 													</div>
 												</div>
 											</div>
+											<div class="col-5">
+												<div class="row justify-content-start">
+													<div class="col-3">전화번호 :</div>
+													<div class="col-2">
+														<input class="phone1 form-control text-end" type="text"
+															value="${user.phone1}" id="phone1" name="phone1"
+															aria-label="default input example">
+													</div>
+													-
+													<div class="col-3">
+														<input class="phone2 form-control text-end" type="text"
+															value="${user.phone2}" id="phone2" name="phone2"
+															aria-label="default input example">
+													</div>
+													-
+													<div class="col-3">
+														<input class="phone3 form-control text-end" type="text"
+															value="${user.phone3}" id="phone3" name="phone3"
+															aria-label="default input example">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</thead>
+					<tbody class="table-secondary">
+						<tr class="text-dark">
+							<td class="">
+								<div class="row">
+									<div class="col">
+										<div class="row justify-content-start">
 											<div class="col-5">
 												<div class="row">
 													<div class="col-4">사물함 기간 :</div>
@@ -79,51 +113,6 @@
 													</div>
 												</div>
 											</div>
-										</div>
-									</div>
-								</div>
-							</td>
-						</tr>
-					</thead>
-					<tbody class="table-secondary">
-						<tr class="text-dark">
-							<td class="">
-								<div class="row">
-									<div class="col">
-										<div class="row justify-content-start">
-											<div class="col-3">
-												<div class="row justify-content-start">
-													<div class="col-6">담당 코치 :</div>
-													<div class="col-6">
-														<input class="employeeName form-control text-end"
-															type="text" value="${user.employeeName}"
-															id="employeeName" name="employeeName"
-															aria-label="default input example">
-													</div>
-												</div>
-											</div>
-											<div class="col-5">
-												<div class="row justify-content-start">
-													<div class="col-3">전화번호 :</div>
-													<div class="col-2">
-														<input class="phone1 form-control text-end"
-															type="text" value="${user.phone1}" id="phone1"
-															name="phone1" aria-label="default input example">
-													</div>
-													-
-													<div class="col-3">
-														<input class="phone2 form-control text-end"
-															type="text" value="${user.phone2}" id="phone2"
-															name="phone2" aria-label="default input example">
-													</div>
-													-
-													<div class="col-3">
-														<input class="phone3 form-control text-end"
-															type="text" value="${user.phone3}" id="phone3"
-															name="phone3" aria-label="default input example">
-													</div>
-												</div>
-											</div>
 											<div class="col-4 text-end">
 												<div class="row">
 													<div class="col-8">
@@ -131,8 +120,9 @@
 															<div class="col-6">사물함 번호 :</div>
 															<div class="col-6">
 																<input class="FK_user_locker form-control text-end"
-																	type="text" value="${user.lockerNo}" id="FK_user_locker"
-																	name="FK_user_locker" aria-label="default input example">
+																	type="text" value="${user.lockerNo}"
+																	id="FK_user_locker" name="FK_user_locker"
+																	aria-label="default input example">
 															</div>
 														</div>
 													</div>
@@ -145,6 +135,7 @@
 										</div>
 									</div>
 								</div>
+
 							</td>
 						</tr>
 					</tbody>
