@@ -1,16 +1,19 @@
 package com.health.domain;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class Locker {
 	private int lockerNo;
-	private Timestamp lockerRegDate;
-	private Timestamp lockerDdate;
+	private int FK_user_locker;
+	private Date lockerRegDate;
+	private Date lockerDdate;
 
 	public Locker() {}
 
-	public Locker(int lockerNo, Timestamp lockerRegDate, Timestamp lockerDdate) {
+	public Locker(int lockerNo, int fK_user_locker, Date lockerRegDate, Date lockerDdate) {
+		super();
 		this.lockerNo = lockerNo;
+		FK_user_locker = fK_user_locker;
 		this.lockerRegDate = lockerRegDate;
 		this.lockerDdate = lockerDdate;
 	}
@@ -23,21 +26,29 @@ public class Locker {
 		this.lockerNo = lockerNo;
 	}
 
-	public Timestamp getLockerRegDate() {
+	public int getFK_user_locker() {
+		return FK_user_locker;
+	}
+
+	public void setFK_user_locker(int fK_user_locker) {
+		FK_user_locker = fK_user_locker;
+	}
+
+	public Date getLockerRegDate() {
 		return lockerRegDate;
 	}
 
-	public void setLockerRegDate(Timestamp lockerRegDate) {
+	public void setLockerRegDate(Date lockerRegDate) {
 		this.lockerRegDate = lockerRegDate;
 	}
 
-	public Timestamp getLockerDdate() {
+	public Date getLockerDdate() {
 		return lockerDdate;
 	}
 
-	public void setLockerDdate(Timestamp lockerDdate) {
+	public void setLockerDdate(Date lockerDdate) {
 		this.lockerDdate = lockerDdate;
 	}
 
-	
+
 }
