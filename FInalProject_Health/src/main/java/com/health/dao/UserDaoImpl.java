@@ -5,9 +5,9 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
 
 import com.health.domain.User;
+import com.health.domain.Employee;
 import com.health.domain.Locker;
 import com.health.domain.Pt;
 import com.health.domain.RegInfo;
@@ -45,18 +45,44 @@ public class UserDaoImpl implements UserDao {
 		sqlSession.update(NAME_SPACE+".updateUser", user);
 		
 	}
-
-	@Override
-	public void updatePt(Pt pt) {
-		sqlSession.update(NAME_SPACE+".updatePt", pt);
-		
-	}
-
+	
 	@Override
 	public void updateLocker(Locker locker) {
 		sqlSession.update(NAME_SPACE+".updateLocker", locker);
 		
 	}
+
+	@Override
+	public void insertInfo(RegInfo regInfo) {
+		sqlSession.insert(NAME_SPACE + ".addInfo", regInfo);
+		sqlSession.insert(NAME_SPACE + ".plusInfo", regInfo);
+	}
+
+	@Override
+	public Locker getLocker(int userNo) {
+		
+		return sqlSession.selectOne(NAME_SPACE+".getLocker", userNo);
+	}
+
+	@Override
+	public List<Pt> getPt(int userNo) {
+
+		return sqlSession.selectList(NAME_SPACE+".getUserPt", userNo);
+	}
+
+	@Override
+	public void insertPt(Pt pt) {		
+		sqlSession.insert(NAME_SPACE +".addPt", pt);
+		sqlSession.update(NAME_SPACE+".updatePt", pt);
+		sqlSession.update(NAME_SPACE+".plusPt", pt);
+		
+	}
+
+	@Override
+	public List<Employee> getEmployee() {
+		return sqlSession.selectList(NAME_SPACE+".getEmployee");
+	}
+
 
 
 	

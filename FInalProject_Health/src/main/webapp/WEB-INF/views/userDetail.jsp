@@ -60,19 +60,19 @@
 													<div class="col-2">
 														<input class="phone1 form-control text-end" type="text"
 															value="${user.phone1}" id="phone1" name="phone1"
-															aria-label="default input example">
+															aria-label="default input example" maxlength="3">
 													</div>
 													-
 													<div class="col-3">
 														<input class="phone2 form-control text-end" type="text"
 															value="${user.phone2}" id="phone2" name="phone2"
-															aria-label="default input example">
+															aria-label="default input example" maxlength="4">
 													</div>
 													-
 													<div class="col-3">
 														<input class="phone3 form-control text-end" type="text"
 															value="${user.phone3}" id="phone3" name="phone3"
-															aria-label="default input example">
+															aria-label="default input example" maxlength="4">
 													</div>
 												</div>
 											</div>
@@ -96,7 +96,7 @@
 															<div class="col-6">
 																<input class="lockerRegDate form-control text-end"
 																	type="text"
-																	value="<fmt:formatDate value="${user.lockerRegDate}"
+																	value="<fmt:formatDate value="${locker.lockerRegDate}"
 															pattern="yyyy-MM-dd" />"
 																	id="lockerRegDate" name="lockerRegDate"
 																	aria-label="default input example">
@@ -104,7 +104,7 @@
 															<div class="col-6">
 																<input class="lockerDdate form-control text-end"
 																	type="text"
-																	value="<fmt:formatDate value="${user.lockerDdate}"
+																	value="<fmt:formatDate value="${locker.lockerDdate}"
 															pattern="yyyy-MM-dd" />"
 																	id="lockerDdate" name="lockerDdate"
 																	aria-label="default input example">
@@ -120,7 +120,7 @@
 															<div class="col-6">사물함 번호 :</div>
 															<div class="col-6">
 																<input class="FK_user_locker form-control text-end"
-																	type="text" value="${user.lockerNo}"
+																	type="text" value="${locker.lockerNo}"
 																	id="FK_user_locker" name="FK_user_locker"
 																	aria-label="default input example">
 															</div>
@@ -148,7 +148,7 @@
 						<th>담당PT 코치</th>
 						<td>${user.employeeName}</td>
 						<th>최초 등록 지점</th>
-						<td>${user.regPoint}</td>
+						<td>${user.FK_user_point}</td>
 						<th>회원 등록일</th>
 						<td><fmt:formatDate value="${user.regDate}"
 								pattern="yyyy-MM-dd" /></td>
@@ -159,23 +159,74 @@
 					</tr>
 				</thead>
 			</table>
-			<form action="">
+			<form action="addPt">
 				<div class="row my-5">
+					<input type="hidden" name="userNo" value="${user.userNo}">
 					<div class="col">
 						<!-- 결제 정보 -->
 						<div class="row">
 							<div class="col">
-								<h2 class="text-light">결제 이력</h2>
+								<h2 class="text-light">PT결제 이력</h2>
 							</div>
 							<div class="col text-end  mt-1">
 								<div>
-									<input type="button" value="등록"
-										class="btn btn-danger btnCommend" id="addInfo"
-										onclick="location.href='addInfo?userNo=${user.userNo}'">
+									<input type="submit" value="등록"
+										class="btn btn-danger btnCommend" id="addInfo">
+									<!-- onclick="location.href='addInfo" -->
 								</div>
 							</div>
 						</div>
-						<!-- 일지 헤더 -->
+						<!-- 회원권 결제 이력 헤더 -->
+						<div class="row my-3">
+							<div class="col">
+								<table class="table text-center">
+									<thead class="table-secondary">
+										<tr class="text-dark">
+											<th>번 호</th>
+											<th>PT 담당자</th>
+											<th>PT 결제일</th>
+											<th>PT 목적</th>
+											<th>PT 횟수</th>
+											<th>결제 지점</th>
+										</tr>
+									</thead>
+									<tbody class="text-light">
+										<c:forEach var="p" items="${pt}" varStatus="num">
+											<tr>
+												<td>${pt.size() - num.index}</td>
+												<td>${p.employeeName}</td>
+												<td><fmt:formatDate value="${p.ptRegDate}"
+														pattern="yyyy-MM-dd" /></td>
+												<td>${p.ptPurpose}</td>
+												<td>${p.ptTotalNum}</td>
+												<td>${p.FK_pt_point}</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<form action="addInfo">
+				<div class="row my-5">
+					<input type="hidden" name="userNo" value="${user.userNo}">
+					<div class="col">
+						<!-- 결제 정보 -->
+						<div class="row">
+							<div class="col">
+								<h2 class="text-light">회원권 결제 이력</h2>
+							</div>
+							<div class="col text-end  mt-1">
+								<div>
+									<input type="submit" value="등록"
+										class="btn btn-danger btnCommend" id="addInfo">
+									<!-- onclick="location.href='addInfo" -->
+								</div>
+							</div>
+						</div>
+						<!-- 회원권 결제 이력 헤더 -->
 						<div class="row my-3">
 							<div class="col">
 								<table class="table text-center">
@@ -193,7 +244,7 @@
 												<td>${regInfo.size() - num.index}</td>
 												<td><fmt:formatDate value="${r.infoRegDate}"
 														pattern="yyyy-MM-dd" /></td>
-												<td>${r.regType}</td>
+												<td>${r.regType}회</td>
 												<td>${r.regPoint}</td>
 											</tr>
 										</c:forEach>
@@ -204,6 +255,7 @@
 					</div>
 				</div>
 			</form>
+
 		</div>
 	</div>
 </section>
