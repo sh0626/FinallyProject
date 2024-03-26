@@ -6,6 +6,28 @@ public class ScheduleDTO {
 	private String startDate;
 	private String endDate;
 	private String memo;
+	private String employeeName;
+
+	public ScheduleDTO() {
+	}
+
+	public ScheduleDTO(String id, String subject, String startDate, String endDate, String memo,
+			String employeeName) {
+		this.id = id;
+		this.subject = subject;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.memo = memo;
+		this.employeeName = employeeName;
+	}
+
+	public String getemployeeName() {
+		return employeeName;
+	}
+
+	public void setemployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
 
 	public String getId() {
 		return id;

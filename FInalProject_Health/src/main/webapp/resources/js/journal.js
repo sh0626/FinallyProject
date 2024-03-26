@@ -10,7 +10,7 @@ $(function(){
 	    let rep = $(".exerciseRep");
 	   
 	   for(var i=0; i<name.length; i++){
-	 	console.log(session);
+	 	
 
 	    // 값이 비어 있는지 확인
 	    if (name[i].value.length == 0) {
@@ -30,13 +30,14 @@ $(function(){
 	        return false;
 	    }
 	}
+	
 	});
 
 //---------------------------------------------------------------		
 	//운동일지[추가]
 	$(document).on('click', '#addFormBtn', function() {
 	    // clone 
-		var clonedForm = $('#jWriteForm .row').first().clone();
+		var clonedForm = $('#eWriteForm .row').first().clone();
 		
 		//clone시 버튼 해당 div 제거
     	clonedForm.find('.col-1').remove();
@@ -46,13 +47,12 @@ $(function(){
     	return false;
     	}
     	
-    	var plus = test +1;
     	
 	    //input value 초기화
 	    clonedForm.find('input[type="text"]').val('');
 	    clonedForm.find('input[type="number"]').val('');
 	    clonedForm.find('select').prop('selectedIndex', 0);
-       	clonedForm.find('.exercises').attr('class', 'exercises' + plus);
+       	
 	   
 	   
 	    // 버튼 생성
@@ -128,5 +128,109 @@ $(function(){
 	});
 
 //---------------------------------------------------------------
-		
+
+	$(document).on('click', '#insertInfo', function() {
+	    // 입력 필드 값 가져오기
+	 	let ptPurpose = $("#ptPurpose").val().trim();
+	    let ptTotalNum = $("#ptTotalNum").val().trim();
+   	 	
+   	 	console.log(ptPurpose);
+   	 	console.log(ptTotalNum);
+	    // 값이 비어 있는지 확인
+	    if (ptPurpose == "") {
+	        alert("결제 항목을 입력해 주세요");
+	        return false;
+	    }
+	    if (ptTotalNum == "") {
+	        alert("목적을 입력해 주세요");
+	        return false;
+	    }
+	
+	});
+	
+//---------------------------------------------------------------
+
+	$(document).on('click', '#addInfo', function() {
+	    // 입력 필드 값 가져오기
+	 	let regType = $("#regType").val().trim();
+
+ 
+	    if (regType == "") {
+	        alert("결제 항목을 입력해 주세요");
+	        return false;
+	    }
+	
+	});
+
+
+//---------------------------------------------------------------
+
+	$(document).on('click', '#updateUser', function() {
+	    // 입력 필드 값 가져오기
+	 	let userName = $("#userName").val().trim();
+	 	let age = $("#age").val().trim();
+	 	let phone1 = $("#phone1").val().trim();
+	 	let phone2 = $("#phone2").val().trim();
+	 	let phone3 = $("#phone3").val().trim();
+	 	let lockerRegDate = $("#lockerRegDate").val().trim();
+	 	let lockerDdate = $("#lockerDdate").val().trim();
+	 	let FK_user_locker = $("#FK_user_locker").val().trim();
+
+ 
+	    if (userName == "") {
+	        alert("회원명을 입력해 주세요");
+	        return false;
+	    }
+	    if (age == "") {
+	        alert("나이를 입력해 주세요");
+	        return false;
+	    }	     
+	    if (phone1 == "") {
+	        alert("전화번호를 입력해 주세요");
+	        return false;
+	    }	     
+	    if (phone2 == "") {
+	        alert("전화번호를 입력해 주세요");
+	        return false;
+	    }
+	     
+	    if (phone3 == "") {
+	        alert("전화번호를 입력해 주세요");
+	        return false;
+	    }
+	     
+	    if (lockerRegDate == "") {
+	        alert("사물함 기간을 입력해 주세요");
+	        return false;
+	    }
+	     
+	    if (lockerDdate == "") {
+	        alert("사물함 기간을 입력해 주세요");
+	        return false;
+	    }
+	     
+	    if (FK_user_locker == "") {
+	        alert("사물함 번호를 입력해 주세요");
+	        return false;
+	    }	
+	});
+	
+//---------------------------------------------------------------
+	//pt
+	$(document).on('click', '#ptDelete', function() {
+			let ptFrom = $("#ptFrom")
+   	
+	   		if(confirm("정말 삭제하시겠습니까??")){	       	   		
+	   		 // 폼 액션과 메서드 설정 후 제출
+	       		ptFrom.attr("action", "deletePtProcess");
+	     		ptFrom.attr("method", "post");
+	      		ptFrom.submit();	
+	   		}else{
+	   			return false;
+	   		}
+	});
+	
+//---------------------------------------------------------------	
+
+	
 });

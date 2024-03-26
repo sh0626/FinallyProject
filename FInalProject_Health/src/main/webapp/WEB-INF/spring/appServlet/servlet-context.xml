@@ -35,6 +35,8 @@
 	
 	<view-controller path="/userList" view-name="userList"/>
 	<view-controller path="/userDetail" view-name="userDetail"/>
+	<view-controller path="/addInfo" view-name="addInfo"/>
+	<view-controller path="/addPt" view-name="addPt"/>
 	
 	<view-controller path="/schedule" view-name="schedule"/>
 	<view-controller path="/inBody" view-name="inBody"/>

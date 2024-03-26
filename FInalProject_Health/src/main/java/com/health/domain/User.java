@@ -14,9 +14,10 @@ public class User {
 	private String phone3;
 	private int possessNum;
 	private int totalNum;
+	private int ptTotalNum;
 	private int ptPossessNum;
 	private String employeeName;
-	private String regPoint;
+	private String FK_user_point;
 	private int lockerNo;
 	//private Timestamp lockerRegDate;
 	//private Timestamp lockerDdate;
@@ -24,11 +25,13 @@ public class User {
 	private Date lockerDdate;
 	private int FK_user_locker;
 	
+	
 	public User() {}
 
+
 	public User(int userNo, String userName, String age, String gender, Timestamp regDate, String phone1, String phone2,
-			String phone3, int possessNum, int totalNum, int ptPossessNum, String employeeName, String regPoint,
-			int lockerNo, Date lockerRegDate, Date lockerDdate, int fK_user_locker) {
+			String phone3, int possessNum, int totalNum, int ptTotalNum, int ptPossessNum, String employeeName,
+			String fK_user_point, int lockerNo, Date lockerRegDate, Date lockerDdate, int fK_user_locker) {
 		super();
 		this.userNo = userNo;
 		this.userName = userName;
@@ -40,149 +43,197 @@ public class User {
 		this.phone3 = phone3;
 		this.possessNum = possessNum;
 		this.totalNum = totalNum;
+		this.ptTotalNum = ptTotalNum;
 		this.ptPossessNum = ptPossessNum;
 		this.employeeName = employeeName;
-		this.regPoint = regPoint;
+		FK_user_point = fK_user_point;
 		this.lockerNo = lockerNo;
 		this.lockerRegDate = lockerRegDate;
 		this.lockerDdate = lockerDdate;
 		FK_user_locker = fK_user_locker;
 	}
+
 
 	public int getUserNo() {
 		return userNo;
 	}
 
+
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
+
 
 	public String getUserName() {
 		return userName;
 	}
 
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
 
 	public String getAge() {
 		return age;
 	}
 
+
 	public void setAge(String age) {
 		this.age = age;
 	}
+
 
 	public String getGender() {
 		return gender;
 	}
 
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
 
 	public Timestamp getRegDate() {
 		return regDate;
 	}
 
+
 	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 	}
+
 
 	public String getPhone1() {
 		return phone1;
 	}
 
+
 	public void setPhone1(String phone1) {
 		this.phone1 = phone1;
 	}
+
 
 	public String getPhone2() {
 		return phone2;
 	}
 
+
 	public void setPhone2(String phone2) {
 		this.phone2 = phone2;
 	}
+
 
 	public String getPhone3() {
 		return phone3;
 	}
 
+
 	public void setPhone3(String phone3) {
 		this.phone3 = phone3;
 	}
+
 
 	public int getPossessNum() {
 		return possessNum;
 	}
 
+
 	public void setPossessNum(int possessNum) {
 		this.possessNum = possessNum;
 	}
+
 
 	public int getTotalNum() {
 		return totalNum;
 	}
 
+
 	public void setTotalNum(int totalNum) {
 		this.totalNum = totalNum;
 	}
+
+
+	public int getPtTotalNum() {
+		return ptTotalNum;
+	}
+
+
+	public void setPtTotalNum(int ptTotalNum) {
+		this.ptTotalNum = ptTotalNum;
+	}
+
 
 	public int getPtPossessNum() {
 		return ptPossessNum;
 	}
 
+
 	public void setPtPossessNum(int ptPossessNum) {
 		this.ptPossessNum = ptPossessNum;
 	}
+
 
 	public String getEmployeeName() {
 		return employeeName;
 	}
 
+
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
 
-	public String getRegPoint() {
-		return regPoint;
+
+	public String getFK_user_point() {
+		return FK_user_point;
 	}
 
-	public void setRegPoint(String regPoint) {
-		this.regPoint = regPoint;
+
+	public void setFK_user_point(String fK_user_point) {
+		FK_user_point = fK_user_point;
 	}
+
 
 	public int getLockerNo() {
 		return lockerNo;
 	}
 
+
 	public void setLockerNo(int lockerNo) {
 		this.lockerNo = lockerNo;
 	}
+
 
 	public Date getLockerRegDate() {
 		return lockerRegDate;
 	}
 
+
 	public void setLockerRegDate(Date lockerRegDate) {
 		this.lockerRegDate = lockerRegDate;
 	}
+
 
 	public Date getLockerDdate() {
 		return lockerDdate;
 	}
 
+
 	public void setLockerDdate(Date lockerDdate) {
 		this.lockerDdate = lockerDdate;
 	}
+
 
 	public int getFK_user_locker() {
 		return FK_user_locker;
 	}
 
+
 	public void setFK_user_locker(int fK_user_locker) {
 		FK_user_locker = fK_user_locker;
 	}
 
+	
+
+	
 }

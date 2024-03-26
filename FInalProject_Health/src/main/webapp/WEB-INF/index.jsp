@@ -69,9 +69,16 @@
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 	<!-- journal -->
 	<script src="resources/js/journal.js"></script>
+<<<<<<< HEAD
 	<script src="resources/js/member.js"></script>
 	<!-- journal End -->
 	<script src="resources/js/attendence.js"></script>
+=======
+	
+<script src="resources/js/attendance.js"></script>
+	
+	
+>>>>>>> 59984392e01960553f9ce917c71061a409f3627f
 </body>
 
 </html>

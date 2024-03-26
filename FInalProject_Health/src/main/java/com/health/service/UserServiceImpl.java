@@ -2,11 +2,14 @@ package com.health.service;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.health.dao.UserDao;
+import com.health.domain.Employee;
 import com.health.domain.Locker;
 import com.health.domain.Pt;
 import com.health.domain.RegInfo;
@@ -40,14 +43,16 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void updateUser(User user) {
-		userDao.updateUser(user);
 		
-	}
-
-	@Override
-	public void updatePt(Pt pt) {
-		userDao.updatePt(pt);
+		User i = userDao.overlapLocker(user.getFK_user_locker());
 		
+		if(i == null ||  i.getUserNo() == user.getUserNo()&&i.getFK_user_locker() == user.getFK_user_locker() ) {			
+				userDao.updateUser(user);
+		}else{
+			JOptionPane.showMessageDialog
+			(null, "이미 다른 사용자가 해당 라커를 사용 중입니다.", "알림", 
+					JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 
 	@Override
@@ -55,5 +60,46 @@ public class UserServiceImpl implements UserService{
 		userDao.updateLocker(locker);
 		
 	}
+
+	@Override
+	public void insertInfo(RegInfo regInfo) {
+		userDao.insertInfo(regInfo);
+		
+	}
+
+	@Override
+	public Locker getLocker(int userNo) {
+		
+		return userDao.getLocker(userNo);
+	}
+
+	@Override
+	public List<Pt> getPt(int userNo) {
+		return userDao.getPt(userNo);
+	}
+
+	@Override
+	public void insertPt(Pt pt) {
+		userDao.insertPt(pt);
+		
+	}
+
+	@Override
+	public List<Employee> getEmployee() {	
+		return userDao.getEmployee();
+	}
+
+	@Override
+	public void deletePt(Pt pt) {
+		userDao.deletePt(pt);
+		
+	}
+
+	@Override
+	public void updateNum(User user) {
+		userDao.updateNum(user);
+		
+	}
+
 
 }

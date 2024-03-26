@@ -20,7 +20,6 @@ $(function() {
 		}
 	});
 	
-	
 	//회원가입
 	
 	// 회원 가입 폼, 회원정보 수정 폼에서 폼 컨트롤에서 키보드 입력을
@@ -120,7 +119,7 @@ $(function() {
 			"url": "pwCheck.ajax",
 			"type": "get",
 			"data": data,
-			"dataType": "json",			
+			"dataType": "json",
 			"success": function(resData) {
 				if(resData.result) {
 					alert("비밀번호가 확인되었습니다.\n비밀번호를 수정해주세요");

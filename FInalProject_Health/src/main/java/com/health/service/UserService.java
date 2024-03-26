@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.ui.Model;
 
+import com.health.domain.Employee;
 import com.health.domain.Locker;
 import com.health.domain.Pt;
 import com.health.domain.RegInfo;
@@ -15,11 +16,23 @@ public interface UserService {
 	
 	public User getUser(int userNo);
 	
+	public Locker getLocker(int userNo);
+	
 	List<RegInfo> getReginfo(int userNo);
 	 
 	void updateUser(User user);
-	
-	void updatePt(Pt pt);
-	
+		
 	void updateLocker(Locker locker);
+	
+	void insertInfo(RegInfo regInfo);
+	
+	List<Pt> getPt(int userNo);
+	
+	void insertPt(Pt pt);
+	
+	void deletePt(Pt pt);
+	
+	public List<Employee> getEmployee();
+	
+	void updateNum(User user);
 }
