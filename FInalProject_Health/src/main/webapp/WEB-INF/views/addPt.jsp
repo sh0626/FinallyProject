@@ -80,7 +80,7 @@
 												</div>
 												<div class="col-1">
 													<input class="btn btn-danger btnCommend" type="submit"
-														id="updateUser" value="추가">
+														id="insertInfo" value="추가">
 												</div>
 											</div>
 										</th>

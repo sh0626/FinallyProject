@@ -11,7 +11,11 @@
 			<div class="col">
 				<div class="row my-3">
 					<div class="col">
-						<h2 class="text-light">회원 정보 상세보기</h2>
+						<h2 class="text-light">회원 정보 상세보기</h2>						
+					</div>
+					<div class="col text-end">
+						<input type="button" value="목록" class="btn btn-danger btnCommend" id="btnReturn"
+								onclick="location.href='userList'"/>
 					</div>
 				</div>
 			</div>
@@ -142,6 +146,8 @@
 				</table>
 			</form>
 			<!-- 멤버십 정보  -->
+			<form action="updateNum" method="Post">
+			<input type="hidden" name="userNo" value="${user.userNo}">
 			<table class="table text-center">
 				<thead class="table-secondary">
 					<tr class="text-dark">
@@ -152,14 +158,34 @@
 						<th>회원 등록일</th>
 						<td><fmt:formatDate value="${user.regDate}"
 								pattern="yyyy-MM-dd" /></td>
-						<th>이용 잔여 횟수</th>
-						<td>${user.possessNum}</td>
+						<th>총 이용 횟수</th>
+						<td>${user.totalNum}</td>
+						<th>PT 총 이용 횟수</th>
+						<td>${user.ptTotalNum}</td>
+					</tr>
+				</thead>
+				<thead class="table-secondary">
+					<tr class="text-dark">
+							<th>이용 잔여 횟수</th>
+						<td>
+							<input class="possessNum form-control-sm text-end" type="number"  name="possessNum" value="${user.possessNum}">
+						</td>
 						<th>PT 잔여 횟수</th>
-						<td>${user.ptPossessNum}</td>
+						<td>
+							<input class="possessNum form-control-sm text-end" type="number"  name="ptPossessNum" value="${user.ptPossessNum}">
+						</td>
+						<th>	<input type="submit"
+							value="수정" class="btn-sm btn-danger btnCommend" id="numUpdateBtn" /></th>
+						<td></td>
+						<th></th>
+						<td></td>
+						<th></th>
+						<td></td>
 					</tr>
 				</thead>
 			</table>
-			<form action="addPt">
+			</form>
+			<form id ="ptFrom" action="addPt" >
 				<div class="row my-5">
 					<input type="hidden" name="userNo" value="${user.userNo}">
 					<div class="col">
@@ -177,6 +203,7 @@
 							</div>
 						</div>
 						<!-- 회원권 결제 이력 헤더 -->
+
 						<div class="row my-3">
 							<div class="col">
 								<table class="table text-center">
@@ -188,9 +215,11 @@
 											<th>PT 목적</th>
 											<th>PT 횟수</th>
 											<th>결제 지점</th>
+											<th></th>
 										</tr>
 									</thead>
 									<tbody class="text-light">
+
 										<c:forEach var="p" items="${pt}" varStatus="num">
 											<tr>
 												<td>${pt.size() - num.index}</td>
@@ -200,8 +229,15 @@
 												<td>${p.ptPurpose}</td>
 												<td>${p.ptTotalNum}</td>
 												<td>${p.FK_pt_point}</td>
+												<td><input type="hidden" name="ptTotalNum"
+													value="${p.ptTotalNum}"> <input type="hidden"
+													name="ptNo" value="${p.ptNo}"> 
+													<input type="button"
+													value="삭제" class="btn-sm btn-danger btnCommend" id="ptDelete" />
+												</td>
 											</tr>
 										</c:forEach>
+
 									</tbody>
 								</table>
 							</div>

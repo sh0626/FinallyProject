@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.health.dao.UserDao;
 import com.health.domain.Employee;
 import com.health.domain.Locker;
 import com.health.domain.Pt;
@@ -104,6 +105,7 @@ public class UserController {
 			// , Timestamp lockerRegDate, Timestamp lockerDdate
 			
 			
+			
 			User user= new User();
 			user.setUserName(userName); 
 			user.setAge(age); 
@@ -128,5 +130,18 @@ public class UserController {
 		
 		}	
 		
+		@PostMapping("/deletePtProcess")
+		public String deletePtProcess(Pt pt) {
+			userService.deletePt(pt);
+			
+			return "redirect:userDetail?userNo="+ pt.getUserNo();
+		}
+		
+		@PostMapping("/updateNum")
+		public String updateNum(User user) {
+			userService.updateNum(user);
+			
+			return "redirect:userDetail?userNo="+ user.getUserNo();
+		}
 		
 }

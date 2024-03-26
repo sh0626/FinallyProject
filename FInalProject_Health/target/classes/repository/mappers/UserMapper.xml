@@ -39,9 +39,11 @@
 				u.phone2, 
 				u.phone3,
 				u.regDate,
+				u.totalNum,
 				u.possessNum,
 				u.ptPossessNum,
-				u.FK_user_point,				
+				u.FK_user_point,
+				u.ptTotalNum,		
 				e.employeeName
 				FROM user u	
 			LEFT JOIN employee e ON u.FK_user_employee = e.employeeNo
@@ -135,9 +137,23 @@
 	<update id="plusPt"  parameterType="Pt">
 		UPDATE user
 		SET 
-		ptPossessNum = ptPossessNum+ #{ptTotalNum}
+		ptPossessNum = ptPossessNum+ #{ptTotalNum},
+		ptTotalNum= ptTotalNum + #{ptTotalNum}
 		WHERE userNo = #{FK_pt_user}
 	</update>
+	
+	<!-- pt 삭제 -->
+	<delete id="deletePt">
+		DELETE FROM pt
+		WHERE ptNo = #{ptNo}
+	</delete>
+	<!-- user pt 정보 수정 -->
+	<update id="updatePt2" parameterType="Pt">
+		UPDATE user
+		SET ptPossessNum = ptPossessNum - #{ptTotalNum},  FK_user_employee = NULL
+		WHERE userNo = #{userNo}
+	</update>
+	
 	
 	<!-- 사물함 정보 수정 -->
 	<update id="updateLocker" parameterType="Pt">
@@ -145,6 +161,22 @@
 		SET lockerRegDate= #{lockerRegDate}, lockerDdate = #{lockerDdate}
 		WHERE lockerNo=#{lockerNo}
 	</update>
+	
+	
+	<update id="updateNum" parameterType="User">
+		UPDATE user
+		SET possessNum=#{possessNum}, ptPossessNum=#{ptPossessNum}
+		WHERE userNo=#{userNo}
+	</update>
+	
+	<select id="overlapLocker" resultType="User">
+		SELECT 
+		userNo,
+		FK_user_locker
+		FROM user
+		WHERE FK_user_locker =#{FK_user_locker}
+	</select>
+	
 </mapper>	
 
 
