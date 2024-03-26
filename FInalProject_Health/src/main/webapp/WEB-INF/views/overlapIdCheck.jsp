@@ -13,7 +13,7 @@
 <body>
 	<div class="row my-5" id="global-content">
 		<c:choose>
-			<c:when test="${ overlap }" >
+			<c:when test="${ overlap }">
 			<div class="col">
 				<div class="row text-center">
 					<div class="col">

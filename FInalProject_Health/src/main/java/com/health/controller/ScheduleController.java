@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ import com.health.service.ScheduleService;
 @Controller
 public class ScheduleController {
 
-	@Inject
+	@Autowired
 	private ScheduleService service;
 
 	// 일정 관리 페이지
@@ -36,14 +37,14 @@ public class ScheduleController {
 	// 일정 추가 팝업
 	@RequestMapping(value = "/schedulePopup")
 	public String test2() throws Exception {
-		return "/schedulePopup";
+		return "forward:WEB-INF/views/schedulePopup.jsp";
 	}
 
 	// 일정 추가 버튼 클릭 Ajax
-	@ResponseBody
 	@RequestMapping(value = "/addSchedule", method = RequestMethod.POST)
-	public Map<Object, Object> addSchedule(@RequestBody ScheduleDTO dto) throws Exception {
-		Map<Object, Object> map = new HashMap<Object, Object>();
+	@ResponseBody
+	public Map<String, Object> addSchedule(@RequestBody ScheduleDTO dto) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
 
 		service.addSchedule(dto);
 
@@ -51,15 +52,13 @@ public class ScheduleController {
 	}
 
 	// 일정 보이기 (임시)
-	@ResponseBody
 	@RequestMapping(value = "/showSchedule")
+	@ResponseBody
 	public List<ScheduleDTO> showSchedule() throws Exception {
 
 		List<ScheduleDTO> list = service.showSchedule();
 
 		return list;
 	}
-	
-	
-	
+
 }
