@@ -4,14 +4,17 @@ import java.sql.Timestamp;
 
 public class Member {
 	
-	private String userName, age, gender, phone1, phone2, phone3, authority, id, pw, regPoint;
+	private String userName, age, gender, phone1, phone2, phone3, authority, id, pw, FK_user_point;
 	private int userNo, possessNum, totalNum;
 	private Timestamp regDate;
 
 	public Member() {}
 
-	public Member(String userName, String age, String gender, String phone1, String phone2, String phone3, String regPoint,
-			String authority, String id, String pw, int userNo, int possessNum, int totalNum, Timestamp regDate) {
+
+
+	public Member(String userName, String age, String gender, String phone1, String phone2, String phone3,
+			String authority, String id, String pw, String fK_user_point, int userNo, int possessNum, int totalNum,
+			Timestamp regDate) {
 		super();
 		this.userName = userName;
 		this.age = age;
@@ -22,20 +25,21 @@ public class Member {
 		this.authority = authority;
 		this.id = id;
 		this.pw = pw;
+		FK_user_point = fK_user_point;
 		this.userNo = userNo;
 		this.possessNum = possessNum;
 		this.totalNum = totalNum;
 		this.regDate = regDate;
-		this.regPoint = regPoint;
 	}
 
 
-	public String getRegPoint() {
-		return regPoint;
+
+	public String getFK_user_point() {
+		return FK_user_point;
 	}
 
-	public void setRegPoint(String regPoint) {
-		this.regPoint = regPoint;
+	public void setFK_user_point(String fK_user_point) {
+		FK_user_point = fK_user_point;
 	}
 
 	public String getUserName() {

@@ -25,6 +25,18 @@ public class MemberDaoImpl implements MemberDao {
 	
 	@Override
 	public void addMember(Member member) {
-		sqlSession.insert(NAME_SPACE + ".addMember", member);
+		sqlSession.insert(NAME_SPACE + ".addMember", member); 
+		sqlSession.insert(NAME_SPACE + ".addId", member); 
 	}
+	
+	public String memberPwCheck(String id) {
+		return sqlSession.selectOne(NAME_SPACE + ".memberPwCheck", id); 
+	}
+	
+	public void updateMember(Member member) {
+		sqlSession.update(NAME_SPACE + ".updateMember", member); 
+		sqlSession.update(NAME_SPACE + ".updateMemberPw", member); 
+	}
+
+	
 }

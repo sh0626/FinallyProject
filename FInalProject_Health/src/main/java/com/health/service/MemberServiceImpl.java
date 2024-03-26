@@ -66,4 +66,22 @@ public class MemberServiceImpl implements MemberService{
 		memberDao.addMember(member);
 	}
 	
+	// 회원정보 수정 비밀번호 확인
+	public boolean memberPwCheck(String id, String pw) {
+		String dbPass = memberDao.memberPwCheck(id);
+		boolean result = false;
+
+		if(passwordEncoder.matches(pw, dbPass)) {
+			result = true;
+		}
+		return result;
+	}
+
+	@Override
+	public void updateMember(Member member) {
+		member.setPw(passwordEncoder.encode(member.getPw()));
+		System.out.println(member.getPw());
+		memberDao.updateMember(member);
+	}
+
 }

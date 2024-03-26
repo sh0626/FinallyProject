@@ -35,7 +35,10 @@
 			</div>
 			<div class="col-2 text-end come">
 				<div class="row">
-					<div class="col">	
+					<div class="col">
+						<c:if test="${sessionScope.member.authority eq '0'}">
+							<a class="nav-link" href="userList">회원관리</a>
+						</c:if>
 						<c:if test="${not sessionScope.isLogin }" >
 							<a class="nav-link" href="loginForm">로그인</a>
 							<a class="nav-link" href="memberJoinForm">회원가입</a></c:if>

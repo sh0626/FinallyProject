@@ -29,6 +29,7 @@ public class MemberController {
 		this.memberService = memberService;
 	}
 
+	// 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Model model, @RequestParam("userId") String id, @RequestParam("pw") String pw,
 			HttpSession session, HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +40,6 @@ public class MemberController {
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println(" alert('존재하지 않는 아이디 입니다.');");
 			out.println(" history.back();");
 			out.println("</script>");
 
@@ -67,41 +67,79 @@ public class MemberController {
 		return "redirect:/main";
 	}
 
+	// 로그아웃
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
-
+		
+		session.removeAttribute("id");
+		
+		// 세션 닫기
 		session.invalidate();
 
 		return "redirect:/main";
 	}
 	
+	// 회원가입
 	@RequestMapping("/joinResult")
-	public String joinResult(Model model, Member member, String authority, String id, String pw1, String userName, 
-									String phone1, String phone2, String phone3, String gender, String age, String regPoint) {
+	public String joinResult(Model model, Member member, String authority, String id, String pw1, String userName,
+			String phone1, String phone2, String phone3, String gender, String age, String FK_user_point , String pw2) {
+		if (!pw1.equals(pw2)) {
+			model.addAttribute("error", "비밀번호가 일치하지 않습니다.");
+			return "memberJoinForm";
+		}
+		
 		member.setAuthority(authority);
 		member.setUserName(userName);
-		member.setId(id);
-		member.setPw(pw1);
 		member.setPhone1(phone1);
 		member.setPhone2(phone2);
 		member.setPhone3(phone3);
 		member.setGender(gender);
 		member.setAge(age);
-		member.setRegPoint(regPoint);
-		
+
+		member.setFK_user_point(FK_user_point);
+
+		member.setId(id);
+		member.setPw(pw1);
+
 		memberService.addMember(member);
 		System.out.println("joinResult : " + member.getUserName());
-		
+
 		return "redirect:loginForm";
 	}
-	
-	@RequestMapping("/overIdCheck")
+
+	// id 중복체크
+	@RequestMapping("/overlapIdCheck")
 	public String overlapIdCheck(Model model, String id) {
-		boolean overlap = memberService.overlapIdCheck(id);
 		
+		// 아이디 중복 여부
+		boolean overlap = memberService.overlapIdCheck(id);
+
+		// 중복 여부 저장
 		model.addAttribute("id", id);
 		model.addAttribute("overlap", overlap);
-		
-		return "forward:WEB-INF/views/memver/overlapIdCheck.jsp";
+
+		return "forward:WEB-INF/views/overlapIdCheck.jsp";
 	}
+	
+	// 마이페이지
+	@RequestMapping("/mypage")
+	public String updateForm(Model model, HttpSession session) {
+		return "/mypage";
+	}
+	
+	@RequestMapping("/memberUpdateResult")
+	public String memberUpdateInfo(Model model, Member member, String pw1, String phone1, String phone2, String phone3, String age) {
+	member.setPw(pw1);
+	member.setPhone1(phone1);
+	member.setPhone2(phone2);
+	member.setPhone3(phone3);
+	member.setAge(age);
+	
+	System.out.println("memberUpdateResult : " + member.getId());
+	memberService.updateMember(member);		
+	model.addAttribute("member", member);
+	
+	return "redirect:mypage";
+	}
+
 }

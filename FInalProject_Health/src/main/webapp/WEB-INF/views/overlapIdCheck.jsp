@@ -5,15 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="resources/bootstrap/bootstrap.min.css" rel="stylesheet" >
-<script type="text/javascript" src="resources/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="resources/js/member.js"></script>
 <title>중복 아이디 체크</title>
 </head>
 <body>
 	<div class="row my-5" id="global-content">
 		<c:choose>
-			<c:when test="${ overlap }">
+			<c:when test="${overlap}" >
 			<div class="col">
 				<div class="row text-center">
 					<div class="col">
