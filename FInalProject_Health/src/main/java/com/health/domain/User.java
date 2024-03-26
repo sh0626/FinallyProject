@@ -16,7 +16,7 @@ public class User {
 	private int totalNum;
 	private int ptPossessNum;
 	private String employeeName;
-	private String regPoint;
+	private String FK_user_point;
 	private int lockerNo;
 	//private Timestamp lockerRegDate;
 	//private Timestamp lockerDdate;
@@ -24,10 +24,11 @@ public class User {
 	private Date lockerDdate;
 	private int FK_user_locker;
 	
+	
 	public User() {}
 
 	public User(int userNo, String userName, String age, String gender, Timestamp regDate, String phone1, String phone2,
-			String phone3, int possessNum, int totalNum, int ptPossessNum, String employeeName, String regPoint,
+			String phone3, int possessNum, int totalNum, int ptPossessNum, String employeeName, String fK_user_point,
 			int lockerNo, Date lockerRegDate, Date lockerDdate, int fK_user_locker) {
 		super();
 		this.userNo = userNo;
@@ -42,7 +43,7 @@ public class User {
 		this.totalNum = totalNum;
 		this.ptPossessNum = ptPossessNum;
 		this.employeeName = employeeName;
-		this.regPoint = regPoint;
+		FK_user_point = fK_user_point;
 		this.lockerNo = lockerNo;
 		this.lockerRegDate = lockerRegDate;
 		this.lockerDdate = lockerDdate;
@@ -145,12 +146,12 @@ public class User {
 		this.employeeName = employeeName;
 	}
 
-	public String getRegPoint() {
-		return regPoint;
+	public String getFK_user_point() {
+		return FK_user_point;
 	}
 
-	public void setRegPoint(String regPoint) {
-		this.regPoint = regPoint;
+	public void setFK_user_point(String fK_user_point) {
+		FK_user_point = fK_user_point;
 	}
 
 	public int getLockerNo() {
@@ -185,4 +186,5 @@ public class User {
 		FK_user_locker = fK_user_locker;
 	}
 
+	
 }

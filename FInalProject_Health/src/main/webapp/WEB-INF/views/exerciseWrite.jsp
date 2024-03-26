@@ -55,8 +55,8 @@
 							<tbody class="text-light">
 								<tr>
 									<td colspan="6">
-										<form id="eWriteProcess" action="eWriteProcess" method="post">
-											<div class="row my-3 exercises" name="exercises">
+										<form id="eWriteForm" action="eWriteProcess" method="post">
+											<div class="row my-3 exercises">
 											<input type="hidden" name="journalNo" id="journalNo" value="${journal.journalNo}">
 												<div class="col-2">
 													<select id="exerciseCate" name ="exerciseCate" class="exerciseCate form-select text-center"
@@ -93,8 +93,7 @@
 											</div>
 											<div class="row my-2">
 												<div class="col text-end">
-													<div class="text-end">
-														
+													<div class="text-end">													
 														<input type="submit" value="등록" class="btn btn-danger btnCommend" id="btnInsert" />
 														<input type="button" value="일지" class="btn btn-danger btnCommend" id="btnReturn"
 														onclick="location.href='journalDetail?journalNo=${journal.journalNo}'"/>

@@ -4,62 +4,104 @@
 
 <mapper namespace="com.health.mapper.UserMapper" >
 
+	<select id="getEmployee" resultType="Employee">
+		SELECT
+			employeeNo,
+			employeeName
+			FROM 
+			employee
+		ORDER BY employeeNo ASC
+	</select>
+
 	<select id="userList" resultType="User">
-		SELECT 
+   		SELECT 
 		    u.userNo, 
 		    u.userName, 
 		    u.phone1, 
 		    u.phone2, 
 		    u.phone3, 
 		    u.possessNum, 
-		    e.employeeName, 
-		    pt.ptPossessNum
+		    u.ptPossessNum,
+		    e.employeeName 
 		FROM 
-			user u
-		LEFT JOIN 
-			pt ON u.userNo = pt.FK_pt_user
-		LEFT JOIN 
-			employee e ON pt.FK_pt_employee = e.employeeNo
-		ORDER BY u.userNo DESC;
-	</select>
-	
-	<select id="getUser" resultType="User" >
-		SELECT
-		    u.userNo,
-		    u.userName,
-		    u.age,
-		    u.phone1, u.phone2, u.phone3,
-		    u.regDate,
-		    u.possessNum,
-		    e.employeeName,
-		    r.regPoint,
-		    pt.ptPossessNum,
-		    l.lockerRegDate,
-		    l.lockerNo,
-		    l.lockerDdate
-		FROM
 		    user u
 		LEFT JOIN
-		    locker l ON u.FK_user_locker = l.lockerNo
-		LEFT JOIN
-		    pt ON u.userNo = pt.FK_pt_user
-		LEFT JOIN    
-		    employee e ON pt.FK_pt_employee = e.employeeNo
-		LEFT JOIN
-		    regInfo r ON u.userNo = r.FK_regInfo_user
-		WHERE userNo = #{no};
+			 employee e ON u.FK_user_employee = e.employeeNo
+		ORDER BY u.userNo DESC;
+			    
+    </select>
+	<select id="getUser" resultType="User" >
+			SELECT
+				u.userNo,
+				u.userName,
+				u.age,
+				u.phone1, 
+				u.phone2, 
+				u.phone3,
+				u.regDate,
+				u.possessNum,
+				u.ptPossessNum,
+				u.FK_user_point,				
+				e.employeeName
+				FROM user u	
+			LEFT JOIN employee e ON u.FK_user_employee = e.employeeNo
+			WHERE userNo = #{no}
+			ORDER BY u.userNo DESC;			
+	</select>
+	
+	<select id="getLocker" resultType="Locker">
+		SELECT
+			l.lockerNo,
+			l.lockerRegDate,
+			l.lockerDdate
+		FROM user u 
+		JOIN locker l ON u.FK_user_locker = l.lockerNo
+		WHERE userNo = #{no}
 	</select>
 	
 	<select id="getUserRegdata" resultType="RegInfo" >
 		SELECT
-		    *
+	    infoRegDate,
+	    regType,
+	    regPoint
 		FROM
 		regInfo 
-		WHERE FK_regInfo_user = #{no};
+		WHERE FK_regInfo_user = #{no}
+		ORDER BY regNo DESC;
 	</select>
 	
 	
+	<select id="getUserPt" resultType="Pt" >
+		SELECT
+	    e.employeeName,
+	    p.ptNo,
+	    p.ptRegDate,
+	    p.ptPurpose,	   
+	    p.FK_pt_point,
+	    p.ptTotalNum
+		FROM
+		pt p
+		JOIN employee e ON p.FK_pt_employee = e.employeeNo	
+		WHERE p.FK_pt_user = #{FK_pt1_user}
+		ORDER BY ptNo DESC;
+	</select>
 	
+	<!-- 회원권 등록 -->
+	<insert id="addInfo" parameterType="RegInfo"
+	 useGeneratedKeys="true" keyProperty="regNo" >
+		INSERT INTO regInfo(infoRegDate, regType, regPoint, FK_regInfo_user)
+		VALUES(SYSDATE(), #{regType}, #{regPoint}, #{FK_regInfo_user})		
+	</insert>
+	
+	<!-- 회원권 카운트 + -->
+	<update id="plusInfo"  parameterType="RegInfo">
+		UPDATE user
+		SET possessNum = possessNum+ #{regType},
+		totalNum= totalNum + #{regType}
+		WHERE userNo = #{FK_regInfo_user}
+	</update>
+	
+	<!-- 회원정보 수정 -->
 	<update id="updateUser" parameterType="User">
 		UPDATE user
 			SET userName=#{userName},  age=#{age}, phone1=#{phone1},
@@ -67,17 +109,38 @@
 		WHERE userNo = #{userNo}
 	</update>
 	
+	<!-- pt 등록 -->
+	<insert id="addPt" parameterType="Pt"
+	 useGeneratedKeys="true" keyProperty="ptNo" >
+		INSERT INTO pt(FK_pt_user, FK_pt_point, ptTotalNum, FK_pt_employee, ptPurpose, ptRegDate)
+		VALUES(#{FK_pt_user}, #{FK_pt_point}, #{ptTotalNum}, 
+		(	SELECT employeeNo 
+		    FROM employee 
+		    WHERE employeeName = #{employeeName}),
+		    #{ptPurpose}, SYSDATE());	
+	</insert>
+	
+	<!-- user pt 담당자 변경 -->
 	<update id="updatePt" parameterType="Pt">
-		UPDATE pt
-		SET FK_pt_employee = (
+		UPDATE user
+		SET FK_user_employee = (
 		    SELECT employeeNo 
 		    FROM employee 
 		    WHERE employeeName = #{employeeName}
 		)
-		WHERE FK_pt_user = #{userNo};
+		WHERE userNo = #{FK_pt_user};
 	</update>
 	
-	<update id="updateLocker" parameterType="Locker">
+	<!-- 회원권 카운트 + -->
+	<update id="plusPt"  parameterType="Pt">
+		UPDATE user
+		SET 
+		ptPossessNum = ptPossessNum+ #{ptTotalNum}
+		WHERE userNo = #{FK_pt_user}
+	</update>
+	
+	<!-- 사물함 정보 수정 -->
+	<update id="updateLocker" parameterType="Pt">
 		UPDATE locker 
 		SET lockerRegDate= #{lockerRegDate}, lockerDdate = #{lockerDdate}
 		WHERE lockerNo=#{lockerNo}

@@ -5,11 +5,12 @@ import java.sql.Timestamp;
 public class RegInfo {
 	private int regNo;
 	private Timestamp infoRegDate;
-	private String regType;
+	private int regType;
 	private String regPoint;
 	private int FK_regInfo_user;
 	
-	public RegInfo(int regNo, Timestamp infoRegDate, String regType, String regPoint, int fK_regInfo_user) {
+	public RegInfo() {};
+	public RegInfo(int regNo, Timestamp infoRegDate, int regType, String regPoint, int fK_regInfo_user) {
 		this.regNo = regNo;
 		this.infoRegDate = infoRegDate;
 		this.regType = regType;
@@ -33,11 +34,11 @@ public class RegInfo {
 		this.infoRegDate = infoRegDate;
 	}
 
-	public String getRegType() {
+	public int getRegType() {
 		return regType;
 	}
 
-	public void setRegType(String regType) {
+	public void setRegType(int regType) {
 		this.regType = regType;
 	}
 

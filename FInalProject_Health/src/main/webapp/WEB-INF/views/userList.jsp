@@ -59,16 +59,12 @@
 											</tr>
 										</c:if>
 									</c:when>
-									<c:when test="${sessionScope.member.authority eq '2'}">
+									<c:when test="${not sessionScope.member.authority}">
 										<tr>
 											<th colspan="7" class="text-center">접근 권한이 없습니다.</th>
-										</tr>
+										</tr>										
 									</c:when>
-									<c:when test="${sessionScope.member.authority eq 'null'}">
-										<tr>
-											<th colspan="7" class="text-center">접근 권한이 없습니다.</th>
-										</tr>
-									</c:when>
+
 								</c:choose>
 							</tbody>
 						</table>

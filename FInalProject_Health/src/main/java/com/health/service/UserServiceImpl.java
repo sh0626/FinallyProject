@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.health.dao.UserDao;
+import com.health.domain.Employee;
 import com.health.domain.Locker;
 import com.health.domain.Pt;
 import com.health.domain.RegInfo;
@@ -45,15 +46,38 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void updatePt(Pt pt) {
-		userDao.updatePt(pt);
-		
-	}
-
-	@Override
 	public void updateLocker(Locker locker) {
 		userDao.updateLocker(locker);
 		
 	}
+
+	@Override
+	public void insertInfo(RegInfo regInfo) {
+		userDao.insertInfo(regInfo);
+		
+	}
+
+	@Override
+	public Locker getLocker(int userNo) {
+		
+		return userDao.getLocker(userNo);
+	}
+
+	@Override
+	public List<Pt> getPt(int userNo) {
+		return userDao.getPt(userNo);
+	}
+
+	@Override
+	public void insertPt(Pt pt) {
+		userDao.insertPt(pt);
+		
+	}
+
+	@Override
+	public List<Employee> getEmployee() {	
+		return userDao.getEmployee();
+	}
+
 
 }

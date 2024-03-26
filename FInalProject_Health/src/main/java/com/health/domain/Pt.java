@@ -1,29 +1,29 @@
 package com.health.domain;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class Pt {
 	private int ptNo;
-	private Timestamp ptRegDate;
+	private Date ptRegDate;
 	private String ptPurpose;
 	private int ptTotalNum;
-	private int	ptPossessNum;
 	private int FK_pt_user;
+	private String FK_pt_point;
 	private int FK_pt_employee;
 	private int userNo;
 	private String employeeName;
 	
 	public Pt() {}
 
-	public Pt(int ptNo, Timestamp ptRegDate, String ptPurpose, int ptTotalNum, int ptPossessNum, int fK_pt_user,
-			int fK_pt_employee, int userNo, String employeeName) {
+	public Pt(int ptNo, Date ptRegDate, String ptPurpose, int ptTotalNum, int ptPossessNum, int fK_pt_user,
+			String fK_pt_point, int fK_pt_employee, int userNo, String employeeName) {
 		super();
 		this.ptNo = ptNo;
 		this.ptRegDate = ptRegDate;
 		this.ptPurpose = ptPurpose;
 		this.ptTotalNum = ptTotalNum;
-		this.ptPossessNum = ptPossessNum;
 		FK_pt_user = fK_pt_user;
+		FK_pt_point = fK_pt_point;
 		FK_pt_employee = fK_pt_employee;
 		this.userNo = userNo;
 		this.employeeName = employeeName;
@@ -37,11 +37,11 @@ public class Pt {
 		this.ptNo = ptNo;
 	}
 
-	public Timestamp getPtRegDate() {
+	public Date getPtRegDate() {
 		return ptRegDate;
 	}
 
-	public void setPtRegDate(Timestamp ptRegDate) {
+	public void setPtRegDate(Date ptRegDate) {
 		this.ptRegDate = ptRegDate;
 	}
 
@@ -61,13 +61,9 @@ public class Pt {
 		this.ptTotalNum = ptTotalNum;
 	}
 
-	public int getPtPossessNum() {
-		return ptPossessNum;
-	}
 
-	public void setPtPossessNum(int ptPossessNum) {
-		this.ptPossessNum = ptPossessNum;
-	}
+
+
 
 	public int getFK_pt_user() {
 		return FK_pt_user;
@@ -75,6 +71,14 @@ public class Pt {
 
 	public void setFK_pt_user(int fK_pt_user) {
 		FK_pt_user = fK_pt_user;
+	}
+
+	public String getFK_pt_point() {
+		return FK_pt_point;
+	}
+
+	public void setFK_pt_point(String fK_pt_point) {
+		FK_pt_point = fK_pt_point;
 	}
 
 	public int getFK_pt_employee() {
@@ -101,5 +105,5 @@ public class Pt {
 		this.employeeName = employeeName;
 	}
 
-	
+		
 }
