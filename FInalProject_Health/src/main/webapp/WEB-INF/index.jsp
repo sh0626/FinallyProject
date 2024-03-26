@@ -89,8 +89,10 @@
 	
 	<!-- journal -->
 	<script src="resources/js/journal.js"></script>
-	<!-- journal End -->
-	<script src="resources/js/attendence.js"></script>
+	
+<script src="resources/js/attendance.js"></script>
+	
+	
 </body>
 
 </html>

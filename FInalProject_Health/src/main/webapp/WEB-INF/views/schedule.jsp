@@ -31,10 +31,9 @@
 <%for (int i = 0; i < list.size(); i++) {
 	ScheduleDTO dto = (ScheduleDTO) list.get(i);%>	
   	  {
-  	   title : '<%=dto.getSubject()%>',
+  	   title : '<%=dto.getSubject()%> - <%=dto.getMemo()%> - <%=dto.getemployeeName()%>',
   	   start : '<%=dto.getStartDate()%>',
-  	   end : '<%=dto.getEndDate()%>',
-  	   memo : '<%=dto.getMemo()%>'
+  	   end : '<%=dto.getEndDate()%>'
   	   },
 <%}%>
 		{
