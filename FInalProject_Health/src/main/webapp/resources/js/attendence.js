@@ -1,4 +1,5 @@
 // 출석 버튼 클릭 시 모달 표시
+
 document.getElementById('attendanceButton').addEventListener('click', function() {
 
   // 모달 표시

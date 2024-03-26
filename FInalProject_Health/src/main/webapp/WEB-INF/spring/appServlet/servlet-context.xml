@@ -25,6 +25,7 @@
 	
 	<view-controller path="/loginForm" view-name="loginForm"/>
 	<view-controller path="/memberJoinForm" view-name="memberJoinForm"/>
+	<view-controller path="/overlaIdCheck" view-name="overlaIdCheck"/>
 	<view-controller path="/mypage" view-name="/mypage"/>
 	
 	<view-controller path="trainingJournal" view-name="trainingJournal"/>

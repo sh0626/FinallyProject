@@ -62,7 +62,7 @@
 	
 	<update id="updateUser" parameterType="User">
 		UPDATE user
-			SET userName=#{userName},  age=#{age}, phone1=#{phone1},
+			SET userName=#{userName}, age=#{age}, phone1=#{phone1},
 			phone2=#{phone2}, phone3=#{phone3}, FK_user_locker=#{FK_user_locker}
 		WHERE userNo = #{userNo}
 	</update>

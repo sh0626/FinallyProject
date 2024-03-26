@@ -34,8 +34,8 @@
 									</p>
 								</div>
 								<p id="btn2">
-									<input type="button" value="회원가입" onclick="/register.jsp"
-										id="btnJoin" />
+									<input type="button" value="회원가입" onclick="window.location.href='/health/memberJoinForm'"
+										id="btnJoin"/>
 									<input type="button" value="아이디/비밀번호 찾기"
 										id="btnSearch" />
 								</p>
