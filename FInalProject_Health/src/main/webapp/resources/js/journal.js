@@ -162,6 +162,7 @@ $(function(){
 	
 	});
 
+
 //---------------------------------------------------------------
 
 	$(document).on('click', '#updateUser', function() {
@@ -214,5 +215,22 @@ $(function(){
 	    }	
 	});
 	
+//---------------------------------------------------------------
+	//pt
+	$(document).on('click', '#ptDelete', function() {
+			let ptFrom = $("#ptFrom")
+   	
+	   		if(confirm("정말 삭제하시겠습니까??")){	       	   		
+	   		 // 폼 액션과 메서드 설정 후 제출
+	       		ptFrom.attr("action", "deletePtProcess");
+	     		ptFrom.attr("method", "post");
+	      		ptFrom.submit();	
+	   		}else{
+	   			return false;
+	   		}
+	});
+	
+//---------------------------------------------------------------	
+
 	
 });

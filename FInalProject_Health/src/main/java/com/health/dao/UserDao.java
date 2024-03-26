@@ -28,8 +28,12 @@ public interface UserDao {
 		
 	List<Pt> getPt(int userNo);	
 	void insertPt(Pt pt);
-
+	void deletePt(Pt pt);
+	
 	List<Employee> getEmployee();
 	
+	void updateNum(User user);
+	
+	User overlapLocker(int FK_user_locker);
 	
 }

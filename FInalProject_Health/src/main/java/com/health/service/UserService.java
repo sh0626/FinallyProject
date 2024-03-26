@@ -30,5 +30,9 @@ public interface UserService {
 	
 	void insertPt(Pt pt);
 	
+	void deletePt(Pt pt);
+	
 	public List<Employee> getEmployee();
+	
+	void updateNum(User user);
 }

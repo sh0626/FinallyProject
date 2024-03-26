@@ -83,6 +83,24 @@ public class UserDaoImpl implements UserDao {
 		return sqlSession.selectList(NAME_SPACE+".getEmployee");
 	}
 
+	@Override
+	public void deletePt(Pt pt) {
+		sqlSession.delete(NAME_SPACE+".deletePt", pt);
+		sqlSession.update(NAME_SPACE+".updatePt2", pt);
+		
+	}
+
+	@Override
+	public void updateNum(User user) {
+		sqlSession.update(NAME_SPACE+".updateNum", user);
+		
+	}
+
+	@Override
+	public User overlapLocker(int FK_user_locker) {		
+		return sqlSession.selectOne(NAME_SPACE+".overlapLocker", FK_user_locker);
+	}
+
 
 
 	
