@@ -20,7 +20,6 @@
 				<nav class="mainmenu mobile-menu">
 					<ul>
 						<li class="active"><a href="main">Home</a></li>
-						<li><a href="#">지점</a></li>
 						<li><a href="employeeDetail">트레이너 소개</a></li>
 						<li><a href="#">메뉴</a>
 							<ul class="dropdown">

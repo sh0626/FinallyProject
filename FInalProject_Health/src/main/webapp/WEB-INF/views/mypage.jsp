@@ -177,7 +177,7 @@
 				</div>
 				<div class="row my-3">
 					<div class="col-8 offset-4">
-						<label for="locker" class="form-laber text-light">사물함 기한 : </label>
+						<label for="locker" class="form-laber text-light">사물함 번호 : </label>
 						<div class="row">
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="locker"
