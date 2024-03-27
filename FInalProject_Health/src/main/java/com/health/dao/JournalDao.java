@@ -13,14 +13,19 @@ public interface JournalDao {
 
 	//운동일지 상세 출력
 	List<Exercise> getExercise(int journalNo);
-	
+
+	//운동일지 게시판 작성
 	void insertJournal(Journal journal);
 	
+	//운동일지 상세 작성
 	void insertExercise(Exercise exercise);
+
+	//운동일지 게시판 삭제
+	void deleteJournal(int journalNo);
 	
-	Journal JournalList2(int journalNo);
-	
+	//운동일지 상세 삭제
 	void deleteExercise(int exerciseNo);
 	
-	void deleteJournal(int journalNo);
+	//일지 정보
+	Journal JournalList2(int journalNo);
 }

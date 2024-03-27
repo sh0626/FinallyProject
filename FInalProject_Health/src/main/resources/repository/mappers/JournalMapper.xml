@@ -1,92 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!--
-	마이바티스 참고 사이트
-	  - http://blog.mybatis.org/
-	  - http://www.mybatis.org/mybatis-3/ko/index.html
--->
-<mapper namespace="com.health.mapper.JournalMapper" >
+<mapper namespace="com.health.mapper.JournalMapper">
 
-	
-	<update id="updateJournal" parameterType="Journal">
-		UPDATE journal
-			SET journalTitle=#{journalTitle}
-		WHERE journalNo= #{journalNo}
-	</update>
-		
-	<update id="updateExercise" parameterType="Exercise">
-		UPDATE exercise
-			SET exerciseCate =#{exerciseCate},  exerciseName = #{exerciseName}, exerciseWeight= #{exerciseWeight},
-			exerciseSet=#{exerciseSet}, exerciseRep=#{exerciseRep}
-		WHERE exerciseNo = #{exerciseNo}
-	</update>
-		
-	<!-- 운동 등록 -->
-	<insert id="insertExercise" parameterType="Exercise"
-	useGeneratedKeys="true" keyProperty="exerciseNo">
-		INSERT INTO exercise(exerciseCate, exerciseName, exerciseWeight, exerciseSet, exerciseRep, FK_exercise_journal)
-		VALUES(#{exerciseCate}, #{exerciseName}, #{exerciseWeight}, #{exerciseSet}, #{exerciseRep}, #{FK_exercise_journal})
-	</insert>
-		
-	<!-- 추가할 게시글 불러오기 -->	
-	<select id="getJournalList2" resultType="Journal" >
-		SELECT 
-		journalNo, 
-		journalTitle,
-		userName ,
-		journalDate
-		FROM journal j, user u 
-		WHERE j.FK_journal_user = u.userNo
-			AND journalNo = #{journalNo}
-	</select>
-	<!-- 게시글 리스트  -->
-	<select id="getJournalList" resultType="Journal" >
-		SELECT 
-		journalNo, 
-		journalTitle,
-		userName ,
-		journalDate
-		FROM journal j, user u 
-		WHERE j.FK_journal_user = u.userNo
-			AND userNo = #{no}
-		order	BY journalNo DESC;
-	</select>
-	
-	<!-- 게시글 해당 운동 리스트 -->
-	<select id="getExercise" resultType="Exercise">
-		SELECT
-		exerciseNo,
-		exerciseCate,
-		exerciseName,
-		exerciseWeight,
-		exerciseSet,
-		exerciseRep
-		FROM
-		exercise
-		WHERE 
-		FK_exercise_journal = #{no}
-	</select>
-	
-	<insert id="insertJournal" parameterType="Journal"
-	useGeneratedKeys="true" keyProperty="journalNo">
-		INSERT INTO journal(journalTitle, journalDate, FK_journal_user)
-		VALUES(#{journalTitle}, SYSDATE() ,#{FK_journal_user})
-	</insert>
+    <!-- 운동일지 수정 -->
+    <update id="updateJournal" parameterType="Journal">
+        UPDATE journal
+        SET journalTitle=#{journalTitle}
+        WHERE journalNo= #{journalNo}
+    </update>
 
-	<!-- 운동 삭제 -->
-	<delete id="deleteExercise">
-	    DELETE FROM exercise
-   		WHERE exerciseNo = #{exerciseNo}
-	</delete>
-	
-	<delete id="deleteJournal">
-	    DELETE FROM journal
-   		WHERE journalNo = #{journalNo}
-	</delete>
-	
-</mapper>	
+    <!-- 운동 정보 수정 -->
+    <update id="updateExercise" parameterType="Exercise">
+        UPDATE exercise
+        SET exerciseCate =#{exerciseCate},  
+            exerciseName = #{exerciseName}, 
+            exerciseWeight= #{exerciseWeight},
+            exerciseSet=#{exerciseSet}, 
+            exerciseRep=#{exerciseRep}
+        WHERE exerciseNo = #{exerciseNo}
+    </update>
 
+    <!-- 운동 등록 -->
+    <insert id="insertExercise" parameterType="Exercise" useGeneratedKeys="true" keyProperty="exerciseNo">
+        INSERT INTO exercise(exerciseCate, exerciseName, exerciseWeight, exerciseSet, exerciseRep, FK_exercise_journal)
+        VALUES(#{exerciseCate}, #{exerciseName}, #{exerciseWeight}, #{exerciseSet}, #{exerciseRep}, #{FK_exercise_journal})
+    </insert>
 
+    <!-- 게시글 불러오기 -->
+    <select id="getJournalList2" resultType="Journal">
+        SELECT 
+        journalNo, 
+        journalTitle,
+        userName ,
+        journalDate
+        FROM journal j, user u 
+        WHERE j.FK_journal_user = u.userNo
+        AND journalNo = #{journalNo}
+    </select>
 
+    <!-- 게시글 리스트 가져오기 -->
+    <select id="getJournalList" resultType="Journal">
+        SELECT 
+        journalNo, 
+        journalTitle,
+        userName ,
+        journalDate
+        FROM journal j, user u 
+        WHERE j.FK_journal_user = u.userNo
+        AND userNo = #{no}
+        ORDER BY journalNo DESC;
+    </select>
+
+    <!-- 게시글에 해당하는 운동 리스트 가져오기 -->
+    <select id="getExercise" resultType="Exercise">
+        SELECT
+        exerciseNo,
+        exerciseCate,
+        exerciseName,
+        exerciseWeight,
+        exerciseSet,
+        exerciseRep
+        FROM
+        exercise
+        WHERE 
+        FK_exercise_journal = #{no}
+    </select>
+
+    <!-- 운동일지 등록 -->
+    <insert id="insertJournal" parameterType="Journal" useGeneratedKeys="true" keyProperty="journalNo">
+        INSERT INTO journal(journalTitle, journalDate, FK_journal_user)
+        VALUES(#{journalTitle}, SYSDATE() ,#{FK_journal_user})
+    </insert>
+
+    <!-- 운동 삭제 -->
+    <delete id="deleteExercise">
+        DELETE FROM exercise
+        WHERE exerciseNo = #{exerciseNo}
+    </delete>
+
+    <!-- 운동일지 삭제 -->
+    <delete id="deleteJournal">
+        DELETE FROM journal
+        WHERE journalNo = #{journalNo}
+    </delete>
+
+</mapper>

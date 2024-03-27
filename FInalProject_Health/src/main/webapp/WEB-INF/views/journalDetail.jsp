@@ -66,4 +66,4 @@
 	</div>
 </section>
 <!-- footer Section -->
-<script src="resources/js/journal.js"></script>
+

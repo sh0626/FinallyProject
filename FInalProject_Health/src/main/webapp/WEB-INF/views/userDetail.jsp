@@ -168,11 +168,11 @@
 					<tr class="text-dark">
 							<th>이용 잔여 횟수</th>
 						<td>
-							<input class="possessNum form-control-sm text-end" type="number"  name="possessNum" value="${user.possessNum}">
+							<input class="possessNum  form-control form-control-sm text-end" type="number"  name="possessNum" value="${user.possessNum}">
 						</td>
 						<th>PT 잔여 횟수</th>
 						<td>
-							<input class="possessNum form-control-sm text-end" type="number"  name="ptPossessNum" value="${user.ptPossessNum}">
+							<input class="ptPossessNum form-control form-control-sm text-end" type="number"  name="ptPossessNum" value="${user.ptPossessNum}">
 						</td>
 						<th>	<input type="submit"
 							value="수정" class="btn-sm btn-danger btnCommend" id="numUpdateBtn" /></th>
