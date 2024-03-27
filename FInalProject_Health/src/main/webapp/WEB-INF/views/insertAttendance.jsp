@@ -15,7 +15,7 @@
 						이름: <span>${attend.userName}</span>
 					</p>
 					<p>
-						잔여횟수: <span>${attend.possesNum}</span>
+						잔여횟수: <span>${attend.possessNum}</span>
 					</p>
 					<p>
 						출석일: <span>${attend.attendanceDate}</span>

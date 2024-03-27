@@ -170,7 +170,7 @@
 						<div class="row">
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="ptPossessNum"
-									value="" readonly>
+									value="${member.ptPossessNum}" readonly>
 							</div>
 						</div>
 					</div>
@@ -180,8 +180,8 @@
 						<label for="locker" class="form-laber text-light">사물함 기한 : </label>
 						<div class="row">
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="locker" value=""
-									readonly>
+								<input type="text" class="form-control" name="locker"
+									value="${member.FK_user_locker}" readonly>
 							</div>
 						</div>
 					</div>

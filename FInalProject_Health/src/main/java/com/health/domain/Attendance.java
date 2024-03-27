@@ -3,7 +3,7 @@ package com.health.domain;
 public class Attendance {
 	private int userNo;
 	private String userName;
-	private int possesNum;
+	private int possessNum;
 	private int attendanceNo;
 	private String attendanceDate;
 
@@ -11,10 +11,10 @@ public class Attendance {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Attendance(int userNo, String userName, int possesNum, int attendanceNo, String attendanceDate) {
+	public Attendance(int userNo, String userName, int possessNum, int attendanceNo, String attendanceDate) {
 		this.userNo = userNo;
 		this.userName = userName;
-		this.possesNum = possesNum;
+		this.possessNum = possessNum;
 		this.attendanceNo = attendanceNo;
 		this.attendanceDate = attendanceDate;
 	}
@@ -43,12 +43,12 @@ public class Attendance {
 		this.userName = userName;
 	}
 
-	public int getPossesNum() {
-		return possesNum;
+	public int getpossessNum() {
+		return possessNum;
 	}
 
-	public void setPossesNum(int possesNum) {
-		this.possesNum = possesNum;
+	public void setpossessNum(int possessNum) {
+		this.possessNum = possessNum;
 	}
 
 	public String getAttendanceDate() {

@@ -50,7 +50,7 @@
 
 <!-- container section start -->
 <section class="contact-section spad">
-	<div id="container">
+	<div id="container" class="my-5">
 		<!--main content start-->
 		<section id="main-content">
 			<section class="wrapper">

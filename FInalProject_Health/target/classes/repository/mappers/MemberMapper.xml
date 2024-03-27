@@ -42,7 +42,8 @@
 	<!-- 해당 userNo를 통해 회원 정보 수정 -->
 	<update id="updateMember" parameterType="Member">
 		UPDATE user
-		SET age = #{age}, phone1 = #{phone1}, phone2 = #{phone2}, phone3 = #{phone3}, FK_user_point = #{FK_user_point}
+		SET age = #{age}, phone1 = #{phone1}, phone2 = #{phone2}, phone3 = #{phone3},
+			FK_user_point = #{FK_user_point}
 		WHERE userNo = (SELECT FK_id_user FROM id WHERE id = #{id});
 	</update>
 	

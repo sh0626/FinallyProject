@@ -5,16 +5,14 @@ import java.sql.Timestamp;
 public class Member {
 	
 	private String userName, age, gender, phone1, phone2, phone3, authority, id, pw, FK_user_point;
-	private int userNo, possessNum, totalNum;
+	private int userNo, possessNum, totalNum, FK_user_locker, ptPossessNum;
 	private Timestamp regDate;
 
 	public Member() {}
 
-
-
 	public Member(String userName, String age, String gender, String phone1, String phone2, String phone3,
 			String authority, String id, String pw, String fK_user_point, int userNo, int possessNum, int totalNum,
-			Timestamp regDate) {
+			int fK_user_locker, int ptPossessNum, Timestamp regDate) {
 		super();
 		this.userName = userName;
 		this.age = age;
@@ -29,10 +27,26 @@ public class Member {
 		this.userNo = userNo;
 		this.possessNum = possessNum;
 		this.totalNum = totalNum;
+		FK_user_locker = fK_user_locker;
+		this.ptPossessNum = ptPossessNum;
 		this.regDate = regDate;
 	}
 
+	public int getPtPossessNum() {
+		return ptPossessNum;
+	}
 
+	public void setPtPossessNum(int ptPossessNum) {
+		this.ptPossessNum = ptPossessNum;
+	}
+
+	public int getFK_user_locker() {
+		return FK_user_locker;
+	}
+
+	public void setFK_user_locker(int fK_user_locker) {
+		FK_user_locker = fK_user_locker;
+	}
 
 	public String getFK_user_point() {
 		return FK_user_point;
