@@ -104,7 +104,6 @@ $(function(){
 	});
 	
 //---------------------------------------------------------------		
-	
 	//일지[삭제]
 	$(document).on('click', '#btnDeleteJ', function(){
 
@@ -128,7 +127,7 @@ $(function(){
 	});
 
 //---------------------------------------------------------------
-
+	//pt 결제 추가
 	$(document).on('click', '#insertInfo', function() {
 	    // 입력 필드 값 가져오기
 	 	let ptPurpose = $("#ptPurpose").val().trim();
@@ -149,12 +148,12 @@ $(function(){
 	});
 	
 //---------------------------------------------------------------
-
+	
+	//회원권 결제 추가
 	$(document).on('click', '#addInfo', function() {
 	    // 입력 필드 값 가져오기
 	 	let regType = $("#regType").val().trim();
 
- 
 	    if (regType == "") {
 	        alert("결제 항목을 입력해 주세요");
 	        return false;
@@ -164,7 +163,7 @@ $(function(){
 
 
 //---------------------------------------------------------------
-
+	//회원 정보 수정
 	$(document).on('click', '#updateUser', function() {
 	    // 입력 필드 값 가져오기
 	 	let userName = $("#userName").val().trim();

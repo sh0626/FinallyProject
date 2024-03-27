@@ -30,36 +30,36 @@ public class JournalDaoImpl implements JournalDao {
 	
 		return sqlSession.selectList(NAME_SPACE +".getExercise", journalNo);
 	}
-
+	//운동일지 게시판 작성
 	@Override
 	public void insertJournal(Journal journal) {
 	
 		sqlSession.insert(NAME_SPACE+".insertJournal", journal);
 		
 	}
-
+	//운동일지 상세 작성
 	@Override
 	public void insertExercise(Exercise exercise) {
 		sqlSession.insert(NAME_SPACE + ".insertExercise", exercise); 
 		
 	}
-
+	//운동일지 게시판 삭제
 	@Override
-	public Journal JournalList2(int journalNo) {
+	public void deleteJournal(int journalNo) {
+		sqlSession.delete(NAME_SPACE+".deleteJournal", journalNo);
 		
-		return sqlSession.selectOne(NAME_SPACE+".getJournalList2", journalNo);
 	}
-
+	//운동일지 상세 삭제
 	@Override
 	public void deleteExercise(int exerciseNo) {
 		sqlSession.delete(NAME_SPACE+".deleteExercise", exerciseNo);
 		
 	}
-
+	//일지 정보
 	@Override
-	public void deleteJournal(int journalNo) {
-		sqlSession.delete(NAME_SPACE+".deleteJournal", journalNo);
+	public Journal JournalList2(int journalNo) {
 		
+		return sqlSession.selectOne(NAME_SPACE+".getJournalList2", journalNo);
 	}
 
 }

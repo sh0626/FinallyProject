@@ -1,183 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.health.mapper.UserMapper" >
+<mapper namespace="com.health.mapper.UserMapper">
 
-	<select id="getEmployee" resultType="Employee">
-		SELECT
-			employeeNo,
-			employeeName
-			FROM 
-			employee
-		ORDER BY employeeNo ASC
-	</select>
-
-	<select id="userList" resultType="User">
-   		SELECT 
-		    u.userNo, 
-		    u.userName, 
-		    u.phone1, 
-		    u.phone2, 
-		    u.phone3, 
-		    u.possessNum, 
-		    u.ptPossessNum,
-		    e.employeeName 
-		FROM 
-		    user u
-		LEFT JOIN
-			 employee e ON u.FK_user_employee = e.employeeNo
-		ORDER BY u.userNo DESC;
-			    
+    <!-- 직원 목록 조회 -->
+    <select id="getEmployee" resultType="Employee">
+        SELECT
+            employeeNo,
+            employeeName
+        FROM 
+            employee
+        ORDER BY employeeNo ASC
     </select>
-	<select id="getUser" resultType="User" >
-			SELECT
-				u.userNo,
-				u.userName,
-				u.age,
-				u.phone1, 
-				u.phone2, 
-				u.phone3,
-				u.regDate,
-				u.totalNum,
-				u.possessNum,
-				u.ptPossessNum,
-				u.FK_user_point,
-				u.ptTotalNum,		
-				e.employeeName
-				FROM user u	
-			LEFT JOIN employee e ON u.FK_user_employee = e.employeeNo
-			WHERE userNo = #{no}
-			ORDER BY u.userNo DESC;			
-	</select>
-	
-	<select id="getLocker" resultType="Locker">
-		SELECT
-			l.lockerNo,
-			l.lockerRegDate,
-			l.lockerDdate
-		FROM user u 
-		JOIN locker l ON u.FK_user_locker = l.lockerNo
-		WHERE userNo = #{no}
-	</select>
-	
-	<select id="getUserRegdata" resultType="RegInfo" >
-		SELECT
-	    infoRegDate,
-	    regType,
-	    regPoint
-		FROM
-		regInfo 
-		WHERE FK_regInfo_user = #{no}
-		ORDER BY regNo DESC;
-	</select>
-	
-	
-	<select id="getUserPt" resultType="Pt" >
-		SELECT
-	    e.employeeName,
-	    p.ptNo,
-	    p.ptRegDate,
-	    p.ptPurpose,	   
-	    p.FK_pt_point,
-	    p.ptTotalNum
-		FROM
-		pt p
-		JOIN employee e ON p.FK_pt_employee = e.employeeNo	
-		WHERE p.FK_pt_user = #{FK_pt1_user}
-		ORDER BY ptNo DESC;
-	</select>
-	
-	<!-- 회원권 등록 -->
-	<insert id="addInfo" parameterType="RegInfo"
-	 useGeneratedKeys="true" keyProperty="regNo" >
-		INSERT INTO regInfo(infoRegDate, regType, regPoint, FK_regInfo_user)
-		VALUES(SYSDATE(), #{regType}, #{regPoint}, #{FK_regInfo_user})		
-	</insert>
-	
-	<!-- 회원권 카운트 + -->
-	<update id="plusInfo"  parameterType="RegInfo">
-		UPDATE user
-		SET possessNum = possessNum+ #{regType},
-		totalNum= totalNum + #{regType}
-		WHERE userNo = #{FK_regInfo_user}
-	</update>
-	
-	<!-- 회원정보 수정 -->
-	<update id="updateUser" parameterType="User">
-		UPDATE user
-			SET userName=#{userName}, age=#{age}, phone1=#{phone1},
-			phone2=#{phone2}, phone3=#{phone3}, FK_user_locker=#{FK_user_locker}
-		WHERE userNo = #{userNo}
-	</update>
-	
-	<!-- pt 등록 -->
-	<insert id="addPt" parameterType="Pt"
-	 useGeneratedKeys="true" keyProperty="ptNo" >
-		INSERT INTO pt(FK_pt_user, FK_pt_point, ptTotalNum, FK_pt_employee, ptPurpose, ptRegDate)
-		VALUES(#{FK_pt_user}, #{FK_pt_point}, #{ptTotalNum}, 
-		(	SELECT employeeNo 
-		    FROM employee 
-		    WHERE employeeName = #{employeeName}),
-		    #{ptPurpose}, SYSDATE());	
-	</insert>
-	
-	<!-- user pt 담당자 변경 -->
-	<update id="updatePt" parameterType="Pt">
-		UPDATE user
-		SET FK_user_employee = (
-		    SELECT employeeNo 
-		    FROM employee 
-		    WHERE employeeName = #{employeeName}
-		)
-		WHERE userNo = #{FK_pt_user};
-	</update>
-	
-	<!-- 회원권 카운트 + -->
-	<update id="plusPt"  parameterType="Pt">
-		UPDATE user
-		SET 
-		ptPossessNum = ptPossessNum+ #{ptTotalNum},
-		ptTotalNum= ptTotalNum + #{ptTotalNum}
-		WHERE userNo = #{FK_pt_user}
-	</update>
-	
-	<!-- pt 삭제 -->
-	<delete id="deletePt">
-		DELETE FROM pt
-		WHERE ptNo = #{ptNo}
-	</delete>
-	<!-- user pt 정보 수정 -->
-	<update id="updatePt2" parameterType="Pt">
-		UPDATE user
-		SET ptPossessNum = ptPossessNum - #{ptTotalNum},  FK_user_employee = NULL
-		WHERE userNo = #{userNo}
-	</update>
-	
-	
-	<!-- 사물함 정보 수정 -->
-	<update id="updateLocker" parameterType="Pt">
-		UPDATE locker 
-		SET lockerRegDate= #{lockerRegDate}, lockerDdate = #{lockerDdate}
-		WHERE lockerNo=#{lockerNo}
-	</update>
-	
-	
-	<update id="updateNum" parameterType="User">
-		UPDATE user
-		SET possessNum=#{possessNum}, ptPossessNum=#{ptPossessNum}
-		WHERE userNo=#{userNo}
-	</update>
-	
-	<select id="overlapLocker" resultType="User">
-		SELECT 
-		userNo,
-		FK_user_locker
-		FROM user
-		WHERE FK_user_locker =#{FK_user_locker}
-	</select>
-	
-</mapper>	
 
+    <!-- 사용자 목록 조회 -->
+    <select id="userList" resultType="User">
+        SELECT 
+            u.userNo, 
+            u.userName, 
+            u.phone1, 
+            u.phone2, 
+            u.phone3, 
+            u.possessNum, 
+            u.ptPossessNum,
+            e.employeeName 
+        FROM 
+            user u
+        LEFT JOIN
+            employee e ON u.FK_user_employee = e.employeeNo
+        ORDER BY u.userNo DESC;
+    </select>
 
-
+    <!-- 특정 사용자 정보 조회 -->
+    <select id="getUser" resultType="User">
+        SELECT
+            u.userNo,
+            u.userName,
+            u.age,
+            u.phone1, 
+            u.phone2, 
+            u.phone3,
+            u.regDate,
+            u.totalNum,
+            u.possessNum,
+            u.ptPossessNum,
+            u.FK_user_point,
+            u.ptTotalNum,        
+            e.employeeName
+        FROM user u    
+        LEFT JOIN employee e ON u.FK_user_employee = e.employeeNo
+        WHERE userNo = #{no}
+        ORDER BY u.userNo DESC;            
+    </select>
+    
+    <!-- 사용자의 사물함 정보 조회 -->
+    <select id="getLocker" resultType="Locker">
+        SELECT
+            l.lockerNo,
+            l.lockerRegDate,
+            l.lockerDdate
+        FROM user u 
+        JOIN locker l ON u.FK_user_locker = l.lockerNo
+        WHERE userNo = #{no}
+    </select>
+    
+    <!-- 사용자의 등록 정보 조회 -->
+    <select id="getUserRegdata" resultType="RegInfo">
+        SELECT
+            infoRegDate,
+            regType,
+            regPoint
+        FROM
+            regInfo 
+        WHERE FK_regInfo_user = #{no}
+        ORDER BY regNo DESC;
+    </select>
+      
+    <!-- 사용자의 PT 정보 조회 -->
+    <select id="getUserPt" resultType="Pt">
+        SELECT
+            e.employeeName,
+            p.ptNo,
+            p.ptRegDate,
+            p.ptPurpose,       
+            p.FK_pt_point,
+            p.ptTotalNum
+        FROM
+            pt p
+        JOIN employee e ON p.FK_pt_employee = e.employeeNo    
+        WHERE p.FK_pt_user = #{FK_pt1_user}
+        ORDER BY ptNo DESC;
+    </select>
+    
+    <!-- 회원권 등록 -->
+    <insert id="addInfo" parameterType="RegInfo" useGeneratedKeys="true" keyProperty="regNo">
+        INSERT INTO regInfo(infoRegDate, regType, regPoint, FK_regInfo_user)
+        VALUES(SYSDATE(), #{regType}, #{regPoint}, #{FK_regInfo_user})      
+    </insert>
+    
+    <!-- 회원권 카운트 증가 -->
+    <update id="plusInfo" parameterType="RegInfo">
+        UPDATE user
+        SET possessNum = possessNum+ #{regType},
+        totalNum= totalNum + #{regType}
+        WHERE userNo = #{FK_regInfo_user}
+    </update>
+    
+    <!-- 사용자 정보 수정 -->
+    <update id="updateUser" parameterType="User">
+        UPDATE user
+            SET userName=#{userName}, age=#{age}, phone1=#{phone1},
+            phone2=#{phone2}, phone3=#{phone3}, FK_user_locker= #{FK_user_locker}    
+        WHERE userNo = #{userNo}
+    </update>
+    
+    <!-- PT 등록 -->
+    <insert id="addPt" parameterType="Pt" useGeneratedKeys="true" keyProperty="ptNo">
+        INSERT INTO pt(FK_pt_user, FK_pt_point, ptTotalNum, FK_pt_employee, ptPurpose, ptRegDate)
+        VALUES(#{FK_pt_user}, #{FK_pt_point}, #{ptTotalNum}, 
+        (   SELECT employeeNo 
+            FROM employee 
+            WHERE employeeName = #{employeeName}),
+            #{ptPurpose}, SYSDATE());    
+    </insert>
+    
+    <!-- 사용자의 PT 담당자 변경 -->
+    <update id="updatePt" parameterType="Pt">
+        UPDATE user
+        SET FK_user_employee = (
+            SELECT employeeNo 
+            FROM employee 
+            WHERE employeeName = #{employeeName}
+        )
+        WHERE userNo = #{FK_pt_user};
+    </update>
+    
+    <!-- PT 카운트 증가 -->
+    <update id="plusPt" parameterType="Pt">
+        UPDATE user
+        SET 
+        ptPossessNum = ptPossessNum+ #{ptTotalNum},
+        ptTotalNum= ptTotalNum + #{ptTotalNum}
+        WHERE userNo = #{FK_pt_user}
+    </update>
+    
+    <!-- PT 정보 삭제 -->
+    <delete id="deletePt">
+        DELETE FROM pt
+        WHERE ptNo = #{ptNo}
+    </delete>
+    
+    <!-- 사용자의 PT 정보 수정 -->
+    <update id="updatePt2" parameterType="Pt">
+        UPDATE user
+        SET ptPossessNum = ptPossessNum - #{ptTotalNum},  FK_user_employee = NULL
+        WHERE userNo = #{userNo}
+    </update>
+    
+    <!-- 사물함 정보 수정 -->
+    <update id="updateLocker" parameterType="Pt">
+        UPDATE locker 
+        SET lockerRegDate= #{lockerRegDate}, lockerDdate = #{lockerDdate}
+        WHERE lockerNo=#{lockerNo}
+    </update>
+      
+    <!-- 이용권 정보 수정 -->
+    <update id="updateNum" parameterType="User">
+        UPDATE user
+        SET possessNum=#{possessNum}, ptPossessNum=#{ptPossessNum}
+        WHERE userNo=#{userNo}
+    </update>
+    
+    <!-- 사물함 중복 확인 -->
+    <select id="overlapLocker" resultType="User">
+        SELECT 
+        userNo,
+        FK_user_locker
+        FROM user
+        WHERE FK_user_locker =#{FK_user_locker}
+    </select>
+    
+</mapper>
