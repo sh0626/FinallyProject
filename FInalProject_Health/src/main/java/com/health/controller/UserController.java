@@ -125,5 +125,19 @@ public class UserController {
 
         return "redirect:userDetail?userNo=" + user.getUserNo(); // 사용자 상세 페이지로 리다이렉트
     }
+	
+    @PostMapping("/updateNum")
+    public String updateNum(User user) {
+       userService.updateNum(user);
+       
+       return "redirect:userDetail?userNo="+ user.getUserNo();
+    }
+        
+    @PostMapping("/deletePtProcess")
+    public String deletePtProcess(Pt pt) {
+       userService.deletePt(pt);
+       
+       return "redirect:userDetail?userNo="+ pt.getUserNo();
+    }
 
 }
