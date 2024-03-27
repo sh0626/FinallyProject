@@ -95,8 +95,8 @@ $(function() {
 		
 	// 회원 가입 폼이 서브밋 될 때 이벤트 처리 - 폼 유효성 검사
 	$("#joinForm").on("submit", function() {
-	
-		return joinFormCheck(true);
+		t = 1
+		return joinFormCheck(t);
 	});
 
 	// 마이페이지
@@ -165,7 +165,9 @@ $(function() {
 	        alert("새 비밀번호가 서로 일치하지 않습니다.");
 	        return false; // 비밀번호가 일치하지 않으면 폼 제출을 막음
 	    } 
-		return joinFormCheck(false);
+		// 정보수정이 완료되었을 때
+	    alert("정보수정이 완료되었습니다.");
+	    return
 	});
 });
 
@@ -227,4 +229,7 @@ $(function() {
 			alert("나이가 입력되지 않았습니다.\n나이를 입력해주세요");
 			return false;
 		}
+		// 회원가입이 완료되었을 때
+	    alert("회원가입이 완료되었습니다.");
+	    return true;
 	}

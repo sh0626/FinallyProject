@@ -22,30 +22,17 @@
 										<label for="userPass" class="labelStyle">비밀번호</label>
 										<input type="password" id="userPw" name="pw" />
 									</p>
-									<input type="submit" class="c-btn" value="로그인" id="btnLogin" />
-								</div>
-								
-								<div>
-									<p id="btn1">
-										<input type="checkbox" id="saveId" value="savedIdYes" />
-										<label for="saveId">아이디저장</label>
-										<input type="checkbox" id="secure" value="secureYes" />
-										<label for="secure">보안접속</label>										
-									</p>
+									<input type="submit" class="c-btn mt-3" value="로그인" id="btnLogin" />
 								</div>
 								<p id="btn2">
-									<input type="button" value="회원가입" onclick="window.location.href='/health/memberJoinForm'"
-										id="btnJoin"/>
-									<input type="button" value="아이디/비밀번호 찾기"
-										id="btnSearch" />
+									<input type="button" value="회원가입" class="my-3"
+										onclick="window.location.href='/health/memberJoinForm'" id="btnJoin"/>
 								</p>
 							</fieldset>
-							
 						</form>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </section>

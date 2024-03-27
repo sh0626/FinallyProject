@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.health.domain.Member;
 import com.health.service.MemberService;
@@ -36,6 +37,7 @@ public class MemberController {
 
 		int result = memberService.login(id, pw);
 
+		// 로그인 성공시
 		if (result == -1) {
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
@@ -45,6 +47,7 @@ public class MemberController {
 
 			return null;
 
+		// 로그인 실패시
 		} else if (result == 0) {
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
@@ -56,24 +59,23 @@ public class MemberController {
 
 			return null;
 		}
-
+		
+		
 		Member member = memberService.getMember(id);
 		session.setAttribute("isLogin", true);
-
 		model.addAttribute("member", member);
-		System.out.println("member.userName : " + member.getUserName());
-		System.out.println("member.user권한 : " + member.getAuthority());
 
 		return "redirect:/main";
 	}
 
 	// 로그아웃
 	@RequestMapping("/logout")
-	public String logout(HttpSession session) {
+	public String logout(SessionStatus sessionStatus,HttpSession session) {
 		
 		session.removeAttribute("id");
 		
 		// 세션 닫기
+		sessionStatus.setComplete();
 		session.invalidate();
 
 		return "redirect:/main";

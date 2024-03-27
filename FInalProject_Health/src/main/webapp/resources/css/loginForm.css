@@ -3,11 +3,11 @@
 }
 
 @CHARSET "UTF-8";
-/* ·Î±×ÀÎ Æû */
+/* ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ */
 #loginForm h2, #loginForm p, #loginForm input, #loginForm label {
 	margin: 0px;
 	padding: 0px;
-	font-family: "¸¼Àº °íµñ", µ¸¿ò;
+	font-family: "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½", ï¿½ï¿½ï¿½ï¿½;
 	font-size: 12px;
 }
 
