@@ -60,7 +60,7 @@ public class MemberController {
 			return null;
 		}
 		
-		
+		//member에 담기
 		Member member = memberService.getMember(id);
 		session.setAttribute("isLogin", true);
 		model.addAttribute("member", member);
@@ -117,7 +117,7 @@ public class MemberController {
 		boolean overlap = memberService.overlapIdCheck(id);
 
 		// 중복 여부 저장
-		model.addAttribute("id", id);
+		model.addAttribute("id", id);	
 		model.addAttribute("overlap", overlap);
 
 		return "forward:WEB-INF/views/overlapIdCheck.jsp";
@@ -129,7 +129,7 @@ public class MemberController {
 		return "/mypage";
 	}
 	
-	@RequestMapping("/memberUpdateResult")
+	@RequestMapping("/memberUpdateResult") 
 	public String memberUpdateInfo(Model model, Member member, String pw1, String phone1, String phone2, String phone3, String age) {
 	member.setPw(pw1);
 	member.setPhone1(phone1);

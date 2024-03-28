@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <script type="text/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="resources/js/member.js"></script>
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
 <title>중복 아이디 체크</title>
 </head>
 <body>

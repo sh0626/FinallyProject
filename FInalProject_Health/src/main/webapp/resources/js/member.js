@@ -5,8 +5,8 @@ $(function() {
 	
 	// 회원 로그인 폼이 submit 될 때 폼 유효성 검사를 위한 이벤트 처리
 	$("#loginForm").submit(function() {
-		var id = $("#userId").val();
-		var pw = $("#userPw").val();
+		var id = $("#id").val();
+		var pw = $("#pw").val();
 		
 		if(id.length <= 0) {
 			alert("아이디가 입력되지 않았습니다.\n아이디를 입력해주세요");
