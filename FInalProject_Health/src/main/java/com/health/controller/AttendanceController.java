@@ -18,7 +18,15 @@ public class AttendanceController {
 	private AttendanceService service;
 
 	@RequestMapping("/attendance")
-	public String attendance(Model model) {
+	public String attendance(Model model, HttpServletRequest request, HttpSession session) {
+		
+        session = request.getSession();
+        Member member = (Member) session.getAttribute("member");
+        // 사용자가 로그인되어 있는지 확인
+        if (member == null) {
+            return "redirect:loginForm"; // 로그인 페이지로 리다이렉트
+        }
+        
 		return "attendance";
 	}
 

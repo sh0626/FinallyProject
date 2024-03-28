@@ -32,6 +32,27 @@ $(function(){
 	}
 	
 	});
+//---------------------------------------------------------------			
+	   //사물함 조회 
+   $(document).ready(function() {
+        // URL에서 errorMessage 파라미터 가져오기
+        var errorMessage = getParameterByName('errorMessage');
+
+        // errorMessage가 있으면 alert 띄우기
+        if (errorMessage==='1') {
+            alert("사용중인 사물함입니다.");
+        }else{
+        }
+    });
+        function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
 
 //---------------------------------------------------------------		
 	//운동일지[추가]
@@ -164,7 +185,7 @@ $(function(){
 
 //---------------------------------------------------------------
 	//회원 정보 수정
-	$(document).on('click', '#updateUser', function() {
+	$(document).on('click', '#updateUserBtn', function() {
 	    // 입력 필드 값 가져오기
 	 	let userName = $("#userName").val().trim();
 	 	let age = $("#age").val().trim();
