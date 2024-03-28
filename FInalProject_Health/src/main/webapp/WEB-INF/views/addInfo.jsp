@@ -50,7 +50,7 @@
 												<div class="col-2">
 													<input class="form-control" type="text" value="${date}">
 												</div>
-												<div class="col-2 text-end fs-5 mt-1">결제 항목</div>
+												<div class="col-2 text-end fs-5 mt-1">결제 횟수</div>
 												<div class="col-3">
 													<input class="form-control" type="number" name="regType" 
 													id="regType" placeholder="회 권" >
