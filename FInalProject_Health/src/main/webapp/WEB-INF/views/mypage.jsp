@@ -155,7 +155,7 @@
 				</div>
 				<div class="row my-3">
 					<div class="col-8 offset-4">
-						<label for="possessNum" class="form-laber text-light">이용 잔여 횟수 : </label>
+						<label for="possessNum" class="form-laber text-light">이용권 잔여 횟수 : </label>
 						<div class="row">
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="possessNum"

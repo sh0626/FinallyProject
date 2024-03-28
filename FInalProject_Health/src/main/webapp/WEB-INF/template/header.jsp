@@ -26,7 +26,7 @@
 								<li><a href="attendance">출석</a></li>
 								<li><a href="trainingJournal">운동 일지</a></li>
 								<li><a href="inBody">인바디</a></li>
-								<li><a href="schedule">달력</a></li>
+								<li><a href="schedule">스케줄 관리</a></li>
 							</ul>
 						</li>
 					</ul>

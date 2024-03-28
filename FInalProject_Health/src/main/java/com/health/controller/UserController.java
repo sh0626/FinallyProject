@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.health.dao.UserDao;
 import com.health.domain.Employee;
 import com.health.domain.Locker;
 import com.health.domain.Pt;
@@ -23,6 +25,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private UserDao userDao;
+	
 	// 사용자 정보 추가 페이지
 	@RequestMapping(value = { "/addInfo" }, method = RequestMethod.GET)
 	public String addInfo(Model model, int userNo) {
@@ -97,47 +102,60 @@ public class UserController {
 
 	// 사용자 정보 수정 처리
 	@RequestMapping("/updateUser")
-    public String updateUser(Model model, Integer userNo, String userName, String age, String phone1, String phone2,
-            String phone3, @RequestParam(value = "FK_user_locker", required = false) Integer FK_user_locker,
-            Date lockerRegDate, Date lockerDdate) {
+	public String updateUser(Model model, Integer userNo, String userName, String age, String phone1, String phone2,
+			String phone3, @RequestParam(value = "FK_user_locker", required = false) Integer FK_user_locker,
+			Date lockerRegDate, Date lockerDdate) {
 
-        // 사용자 정보 업데이트
-        User user = new User();
-        user.setUserName(userName);
-        user.setAge(age);
-        user.setPhone1(phone1);
-        user.setPhone2(phone2);
-        user.setPhone3(phone3);
-        if (!(FK_user_locker == null)) {
-            user.setFK_user_locker(FK_user_locker);
-        }
-        user.setUserNo(userNo);
-        userService.updateUser(user);
+		User i = userDao.overlapLocker(FK_user_locker);
 
-        // 락커 정보 업데이트
-        Locker locker = new Locker();
-        if (!(FK_user_locker == null)) {
-            locker.setLockerNo(FK_user_locker);
-        }
-        locker.setLockerRegDate(lockerRegDate);
-        locker.setLockerDdate(lockerDdate);
-        userService.updateLocker(locker);
+		if (i == null || i.getUserNo() == userNo) {
 
-        return "redirect:userDetail?userNo=" + user.getUserNo(); // 사용자 상세 페이지로 리다이렉트
-    }
-	
-    @PostMapping("/updateNum")
-    public String updateNum(User user) {
-       userService.updateNum(user);
-       
-       return "redirect:userDetail?userNo="+ user.getUserNo();
-    }
-        
-    @PostMapping("/deletePtProcess")
-    public String deletePtProcess(Pt pt) {
-       userService.deletePt(pt);
-       
-       return "redirect:userDetail?userNo="+ pt.getUserNo();
-    }
+			// 사용자 정보 업데이트
+			User user = new User();
+			user.setUserName(userName);
+			user.setAge(age);
+			user.setPhone1(phone1);
+			user.setPhone2(phone2);
+			user.setPhone3(phone3);
+			if (!(FK_user_locker == null)) {
+				user.setFK_user_locker(FK_user_locker);
+			}
+			user.setUserNo(userNo);
+			userService.updateUser(user);
+
+			// 락커 정보 업데이트
+			Locker locker = new Locker();
+			if (!(FK_user_locker == null)) {
+				locker.setLockerNo(FK_user_locker);
+			}
+			locker.setLockerRegDate(lockerRegDate);
+			locker.setLockerDdate(lockerDdate);
+			userService.updateLocker(locker);
+			String errorMessage = "2";
+			model.addAttribute("errorMessage", errorMessage);
+
+			return "redirect:userDetail?userNo=" + user.getUserNo() + "&errorMessage=" + errorMessage; // 사용자 상세 페이지로
+																										// 리다이렉트
+		} else {
+			String errorMessage = "1";
+			model.addAttribute("errorMessage", errorMessage);
+			return "redirect:/userDetail?userNo=" + userNo + "&errorMessage=" + errorMessage;
+		}
+
+	}
+
+	@PostMapping("/updateNum")
+	public String updateNum(User user) {
+		userService.updateNum(user);
+
+		return "redirect:userDetail?userNo=" + user.getUserNo();
+	}
+
+	@PostMapping("/deletePtProcess")
+	public String deletePtProcess(Pt pt) {
+		userService.deletePt(pt);
+
+		return "redirect:userDetail?userNo=" + pt.getUserNo();
+	}
 
 }

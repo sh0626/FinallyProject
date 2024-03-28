@@ -37,12 +37,19 @@ public class InBodyController {
 
 		session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
+        // 사용자가 로그인되어 있는지 확인
+        if (member == null) {
+            return "redirect:loginForm"; // 로그인 페이지로 리다이렉트
+        }
+        
 		int no = member.getUserNo();
 		System.out.println("user:" + no);
 
 		Map<String, Object> modelMap = service.getInBody(no);
 		model.addAllAttributes(modelMap);
 		System.out.println(modelMap);
+		
+
 		return "inBody";
 	}
 

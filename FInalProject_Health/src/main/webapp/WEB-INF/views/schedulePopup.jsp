@@ -53,8 +53,7 @@
 					<h3 class="zTree-h3">메모</h3>
 				</div>
 				<div class="domain">
-					<textarea class="memo" id="memo" name="memo" rows="5" cols="20"
-						placeholder="100글자까지 입력 가능합니다"></textarea>
+					<input class="memo" id="memo" type="text" name="memo" placeholder="시간 입력">
 				</div>
 				<div class="domain">
 					<h3 class="zTree-h3">담당 트레이너</h3>

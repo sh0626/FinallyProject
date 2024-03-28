@@ -47,13 +47,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void updateUser(User user) {
 		// 다른 사용자가 해당 사물함을 사용 중인지 확인
-		User i = userDao.overlapLocker(user.getFK_user_locker());
-		if(i == null ||  i.getUserNo() == user.getUserNo() && i.getFK_user_locker() == user.getFK_user_locker() ) {			
-			userDao.updateUser(user);
-		} else {
-			// 다른 사용자가 해당 사물함을 사용 중인 경우 메시지 출력
-			JOptionPane.showMessageDialog(null, "이미 다른 사용자가 해당 라커를 사용 중입니다.", "알림", JOptionPane.INFORMATION_MESSAGE);
-		}
+		userDao.updateUser(user);
 	}
 
 	// 사물함 정보 수정

@@ -19,7 +19,7 @@
 							<table class="table table-bordered">
 								<tbody>
 									<tr>
-										<th class="table-secondary">회원</th>
+										<th class="table-secondary">회원 번호</th>
 										<th class="table-secondary">파일</th>
 									</tr>
 									<tr>

@@ -132,7 +132,7 @@
 													</div>
 													<div class="col-4">
 														<input type="submit" value="수정"
-															class="btn btn-danger btnCommend" id="btnInsert" />
+															class="btn btn-danger btnCommend" id="updateUserBtn" />
 													</div>
 												</div>
 											</div>
