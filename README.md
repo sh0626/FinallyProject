@@ -115,5 +115,7 @@
 
 - 일정 추가시 모습
 
+![2024-05-13-22-51-27-image](https://github.com/sh0626/FinallyProject/assets/81377801/4d43b4ca-7a28-4145-8afa-787cd0a71c50)
+
 ![2024-05-13-22-51-30-image](https://github.com/sh0626/First_mini_Project/assets/81377801/5a2af547-3563-43bd-9299-c76ec47d0c12)
 
