@@ -1,3 +1,33 @@
+## [헬스장 회원관리 웹서비스 시스템]
+
+### 개발환경
+
+- Front-end : JSP, JavaScript, JQuery, CSS, Ajax
+  
+- Back-end : Spring, Java, Mybatis
+  
+- Server : AWS, Apache Tomcat
+  
+- DB : MariaDB, MySQL, HeidiSQL
+  
+- API : FullCalendar
+  
+
+### 개발 기간
+
+- 전체 개발 기간 : 2024.03.17 ~ 2024.03.28
+  
+
+### 내가 맡은 부분
+
+- 메인 페이지 구성
+  
+- Spring Security를 사용해 로그인/회원가입 구현
+  
+- FullCalendar API 적용
+  
+- 인바디 게시판, 운동일지 게시판, PT결제 페이지 CRUD 구현
+
 ## 페이지 설명
 
 ### [메인페이지]
