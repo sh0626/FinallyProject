@@ -28,6 +28,9 @@
   
 - 인바디 게시판, 운동일지 게시판, PT결제 페이지 CRUD 구현
 
+### DB ERD
+![3차 DB ERD](https://github.com/sh0626/FinallyProject/assets/81377801/228b7474-dc0a-44a8-a37f-4b9627af0bca)
+
 ## 페이지 설명
 
 ### [메인페이지]
